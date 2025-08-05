@@ -217,9 +217,9 @@ nav {
 }
 
 .result-card {
-    flex: 0 1 calc(25% - 24px);
-    min-width: 250px;
-    max-width: 300px;
+    flex: 0 1 calc(33.333% - 22px);
+    min-width: 280px;
+    max-width: 380px;
     background: white;
     padding: 40px 32px;
     border-radius: 12px;
