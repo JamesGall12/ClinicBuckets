@@ -57,45 +57,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form submission using Formspree
-document.querySelector('.contact-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
+// Form submission - FormSubmit handles it now
+// Just update button text during submission
+document.querySelector('.contact-form').addEventListener('submit', function(e) {
     const submitBtn = this.querySelector('.submit-btn');
-    const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
     
-    const formData = {
-        access_key: '6c4e9b6f-9c2a-4d8e-b3f1-8a5c7d2e9f3b',
-        name: this.name.value,
-        email: this.email.value,
-        clinic: this.clinic.value,
-        message: this.message.value,
-        to_email: 'jgallagher@clinicbucket.com'
-    };
-    
-    try {
-        const response = await fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        });
-        
-        if (response.ok) {
-            alert('Thank you for your message! I\'ll get back to you within 24 hours.');
-            this.reset();
-        } else {
-            alert('An error occurred. Please try again or email directly to jgallagher@clinicbucket.com');
-        }
-    } catch (error) {
-        alert('Please try again or email directly to jgallagher@clinicbucket.com');
-    } finally {
-        submitBtn.textContent = originalText;
+    // Re-enable after a delay (FormSubmit will handle the actual submission)
+    setTimeout(() => {
+        submitBtn.textContent = 'Send message';
         submitBtn.disabled = false;
-    }
+    }, 2000);
 });
 
 // Header scroll effect
