@@ -71,6 +71,41 @@ document.querySelector('.contact-form').addEventListener('submit', function(e) {
     }, 2000);
 });
 
+// Check if form was just submitted
+window.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('submitted') === 'true') {
+        // Show success message
+        const successDiv = document.getElementById('form-success');
+        const form = document.querySelector('.contact-form');
+        if (successDiv && form) {
+            successDiv.style.display = 'block';
+            form.style.display = 'none';
+            
+            // Scroll to the contact section
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                const headerOffset = 100;
+                const elementPosition = contactSection.offsetTop;
+                const offsetPosition = elementPosition - headerOffset;
+                
+                setTimeout(() => {
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }, 500);
+            }
+            
+            // Clean up the URL
+            setTimeout(() => {
+                const cleanUrl = window.location.origin + window.location.pathname;
+                window.history.replaceState({}, document.title, cleanUrl);
+            }, 1000);
+        }
+    }
+});
+
 // Header scroll effect
 window.addEventListener('scroll', function() {
     const header = document.querySelector('header');
