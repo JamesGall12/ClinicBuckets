@@ -28,7 +28,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        const headerOffset = 80;
+        
+        // Calculate dynamic offset to center content better
+        const headerHeight = document.querySelector('header').offsetHeight;
+        const targetHeight = target.offsetHeight;
+        const windowHeight = window.innerHeight;
+        
+        // If section is taller than viewport, just offset by header
+        // Otherwise, try to center it
+        let headerOffset;
+        if (targetHeight > windowHeight - headerHeight) {
+            headerOffset = headerHeight + 20; // Just clear the header with small margin
+        } else {
+            // Center the section in remaining viewport space
+            const remainingSpace = windowHeight - headerHeight - targetHeight;
+            headerOffset = headerHeight - (remainingSpace / 2);
+            // Ensure we don't scroll past the element
+            headerOffset = Math.max(headerHeight + 20, Math.min(headerOffset, headerHeight + 100));
+        }
+        
         const elementPosition = target.offsetTop;
         const offsetPosition = elementPosition - headerOffset;
 
