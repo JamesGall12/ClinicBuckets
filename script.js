@@ -57,7 +57,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form submission
+// Form submission using Formspree
 document.querySelector('.contact-form').addEventListener('submit', async function(e) {
     e.preventDefault();
     
@@ -66,24 +66,32 @@ document.querySelector('.contact-form').addEventListener('submit', async functio
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
     
-    const formData = new FormData(this);
+    const formData = {
+        access_key: '6c4e9b6f-9c2a-4d8e-b3f1-8a5c7d2e9f3b',
+        name: this.name.value,
+        email: this.email.value,
+        clinic: this.clinic.value,
+        message: this.message.value,
+        to_email: 'jgallagher@clinicbucket.com'
+    };
     
     try {
-        const response = await fetch('send-email.php', {
+        const response = await fetch('https://api.web3forms.com/submit', {
             method: 'POST',
-            body: formData
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
         });
         
-        const result = await response.json();
-        
         if (response.ok) {
-            alert(result.message);
+            alert('Thank you for your message! I\'ll get back to you within 24 hours.');
             this.reset();
         } else {
-            alert(result.error || 'An error occurred. Please try again.');
+            alert('An error occurred. Please try again or email directly to jgallagher@clinicbucket.com');
         }
     } catch (error) {
-        alert('Network error. Please check your connection and try again.');
+        alert('Please try again or email directly to jgallagher@clinicbucket.com');
     } finally {
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
