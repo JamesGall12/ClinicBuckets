@@ -180,13 +180,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const totalAnnualLoss = lostRevenueFromChurn + replacementCosts + lostReferralValue;
     
     // WITH YOUR PROVEN SYSTEM
-    // You've demonstrated taking clinics from ~40% to 67-70% retention
-    // For calculation: improve current rate by 27% of the gap to 70%
+    // You've demonstrated achieving 67-70% retention at clinics
+    // Calculate realistic improvement based on their current rate
     const targetRetentionRate = 0.70; // Your proven achievement
-    const retentionGap = targetRetentionRate - currentRetentionRate;
-    const achievableImprovement = Math.max(0, Math.min(retentionGap, 0.27)); // Up to 27% improvement
     
-    const improvedRetentionRate = currentRetentionRate + achievableImprovement;
+    let improvedRetentionRate;
+    if (currentRetentionRate >= 0.70) {
+        // Already at or above target, show modest 5-10% relative improvement
+        improvedRetentionRate = Math.min(0.85, currentRetentionRate * 1.07);
+    } else {
+        // Can improve them TO 70% (your proven rate)
+        improvedRetentionRate = targetRetentionRate;
+    }
+    
+    const achievableImprovement = improvedRetentionRate - currentRetentionRate;
     const improvedChurnRate = 1 - improvedRetentionRate;
     const improvedPatientsLost = Math.round(patients * improvedChurnRate);
     
