@@ -107,7 +107,10 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 // Revenue Calculator - Based on real cannabis clinic metrics
-document.getElementById('calculatorForm')?.addEventListener('submit', function(e) {
+document.addEventListener('DOMContentLoaded', function() {
+    const calculatorForm = document.getElementById('calculatorForm');
+    if (calculatorForm) {
+        calculatorForm.addEventListener('submit', function(e) {
     e.preventDefault();
     
     const patients = parseInt(document.getElementById('patients').value);
@@ -193,6 +196,8 @@ document.getElementById('calculatorForm')?.addEventListener('submit', function(e
             block: 'nearest'
         });
     }, 100);
+        });
+    }
 });
 
 // Header scroll effect
