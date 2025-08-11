@@ -107,21 +107,26 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 // Revenue Calculator - Based on real cannabis clinic metrics
-document.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('load', function() {
     const calculatorForm = document.getElementById('calculatorForm');
     if (calculatorForm) {
         calculatorForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const patients = parseInt(document.getElementById('patients').value);
-    const fee = parseInt(document.getElementById('fee').value);
-    const retention = parseInt(document.getElementById('retention').value);
-    const acquisition = parseInt(document.getElementById('acquisition').value);
-    
-    if (!patients || !fee || !retention || !acquisition) {
-        alert('Please fill in all fields');
-        return;
-    }
+            e.preventDefault();
+            e.stopPropagation();
+            
+            console.log('Calculator form submitted'); // Debug log
+            
+            const patients = parseInt(document.getElementById('patients').value);
+            const fee = parseInt(document.getElementById('fee').value);
+            const retention = parseInt(document.getElementById('retention').value);
+            const acquisition = parseInt(document.getElementById('acquisition').value);
+            
+            console.log('Values:', { patients, fee, retention, acquisition }); // Debug log
+            
+            if (!patients || !fee || !retention || !acquisition) {
+                alert('Please fill in all fields');
+                return;
+            }
     
     // ACCURATE CANNABIS CLINIC METRICS (Based on real data)
     
@@ -221,6 +226,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const monthlyCost = Math.round(totalAnnualLoss / 12);
     
     // Display results
+    console.log('Calculating results...', {
+        patientsLostAnnually,
+        totalAnnualLoss,
+        totalValueRecovered
+    });
+    
     document.getElementById('lostPatients').textContent = patientsLostAnnually.toLocaleString();
     document.getElementById('lostRevenue').textContent = lostRevenueFromChurn.toLocaleString();
     document.getElementById('replacementCosts').textContent = replacementCosts.toLocaleString();
@@ -231,13 +242,19 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('monthlyCost').textContent = monthlyCost.toLocaleString();
     
     // Show results with smooth scroll
-    document.getElementById('results').style.display = 'block';
-    setTimeout(() => {
-        document.getElementById('results').scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'nearest'
-        });
-    }, 100);
+    const resultsDiv = document.getElementById('results');
+    if (resultsDiv) {
+        console.log('Showing results div');
+        resultsDiv.style.display = 'block';
+        setTimeout(() => {
+            resultsDiv.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'nearest'
+            });
+        }, 100);
+    } else {
+        console.error('Results div not found!');
+    }
         });
     }
 });
