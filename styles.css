@@ -570,6 +570,11 @@ nav {
 .calc-results {
     margin-top: 48px;
     animation: fadeIn 0.5s ease;
+    display: none;
+}
+
+.calc-results[style*="display: block"] {
+    display: block !important;
 }
 
 @keyframes fadeIn {

@@ -245,11 +245,23 @@ window.addEventListener('load', function() {
     const resultsDiv = document.getElementById('results');
     if (resultsDiv) {
         console.log('Showing results div');
+        // Force display block and remove any inline styles
         resultsDiv.style.display = 'block';
+        resultsDiv.style.visibility = 'visible';
+        resultsDiv.style.opacity = '1';
+        
+        // Force a reflow to ensure the display change takes effect
+        resultsDiv.offsetHeight;
+        
+        // Scroll to results after a brief delay
         setTimeout(() => {
-            resultsDiv.scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'nearest'
+            const calculatorSection = document.getElementById('calculator');
+            const resultOffset = resultsDiv.offsetTop;
+            const headerHeight = document.querySelector('header').offsetHeight;
+            
+            window.scrollTo({
+                top: resultOffset - headerHeight - 20,
+                behavior: 'smooth'
             });
         }, 100);
     } else {
