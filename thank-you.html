@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - ClinicBucket</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .thank-you-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .thank-you-box {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            padding: 60px 40px;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #10b981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+        }
+        
+        .success-icon::after {
+            content: '✓';
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+        }
+        
+        .thank-you-box h1 {
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        
+        .thank-you-box p {
+            color: #4a5568;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+        
+        .back-button {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.2);
+        }
+        
+        .back-button:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px 0 rgba(37, 99, 235, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .thank-you-box {
+                padding: 40px 30px;
+            }
+            
+            .thank-you-box h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <div class="thank-you-box">
+            <div class="success-icon"></div>
+            <h1>Thank You!</h1>
+            <p>Your message has been successfully sent. I'll review your inquiry and get back to you within 24 hours with insights on how to optimize your clinic's operations.</p>
+            <p>In the meantime, feel free to connect with me on LinkedIn or schedule a call directly.</p>
+            <a href="index.html" class="back-button">Back to Home</a>
+        </div>
+    </div>
+    
+    <script>
+        // Redirect to home after 10 seconds
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 10000);
+    </script>
+</body>
+</html>
