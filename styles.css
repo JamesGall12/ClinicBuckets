@@ -501,8 +501,8 @@ nav {
 }
 
 .bucket-warning {
-    background: linear-gradient(135deg, #fef6f6, #fecaca);
-    border: 2px solid #ef4444;
+    background: transparent;
+    border: none;
     border-radius: 12px;
     padding: 24px;
     margin-bottom: 40px;
@@ -644,7 +644,7 @@ nav {
     font-weight: 500;
     margin: 24px 0;
     padding: 16px;
-    background: #fef2f2;
+    background: transparent;
     border-radius: 8px;
 }
 
