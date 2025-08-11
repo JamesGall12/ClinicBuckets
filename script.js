@@ -242,7 +242,7 @@ window.addEventListener('load', function() {
     document.getElementById('monthlyCost').textContent = monthlyCost.toLocaleString();
     
     // Show results with smooth scroll
-    const resultsDiv = document.getElementById('results');
+    const resultsDiv = document.getElementById('calculator-results');
     if (resultsDiv) {
         console.log('Showing results div');
         // Force display block and remove any inline styles
