@@ -44,6 +44,7 @@
             <ul class="nav-links">
                 <li><a href="#process">Process</a></li>
                 <li><a href="#results">Results</a></li>
+                <li><a href="#calculator">Calculator</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -119,6 +120,124 @@
                 <div class="result-card">
                     <div class="result-number">$800k+</div>
                     <div class="result-label">Total value created</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Revenue Calculator Section -->
+    <section id="calculator" class="section calculator">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Is your bucket leaking money?</h2>
+                <p class="section-subtitle">Calculate how much revenue you're losing from poor retention in 60 seconds</p>
+            </div>
+            
+            <div class="calculator-card">
+                <div class="bucket-warning">
+                    <span class="bucket-icon">🪣💸</span>
+                    <p><strong>Most cannabis clinics lose $50,000-$200,000+ annually</strong> from patients who never return. Find out your exact leakage.</p>
+                </div>
+                
+                <form id="calculatorForm">
+                    <div class="calc-grid">
+                        <div class="form-group">
+                            <label for="patients">Current Active Patient Count:</label>
+                            <select id="patients" required>
+                                <option value="">Select your patient count</option>
+                                <option value="150">Under 200 patients</option>
+                                <option value="350">200-500 patients</option>
+                                <option value="750">500-1,000 patients</option>
+                                <option value="1750">1,000-2,500 patients</option>
+                                <option value="3500">2,500+ patients</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="fee">Average Consultation Fee:</label>
+                            <select id="fee" required>
+                                <option value="">Select average fee</option>
+                                <option value="75">$75</option>
+                                <option value="99">$99</option>
+                                <option value="125">$125</option>
+                                <option value="150">$150</option>
+                                <option value="200">$200+</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="retention">Current Patient Retention Rate:</label>
+                            <select id="retention" required>
+                                <option value="">Select retention rate</option>
+                                <option value="25">Under 30%</option>
+                                <option value="40">30-50%</option>
+                                <option value="60">50-70%</option>
+                                <option value="80">70%+</option>
+                                <option value="35">I don't track this</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="acquisition">Cost to Acquire New Patient:</label>
+                            <select id="acquisition" required>
+                                <option value="">Select acquisition cost</option>
+                                <option value="50">$50</option>
+                                <option value="75">$75</option>
+                                <option value="100">$100</option>
+                                <option value="150">$150</option>
+                                <option value="200">$200+</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="calculate-btn">
+                        Calculate My Revenue Leakage
+                    </button>
+                </form>
+                
+                <div id="results" class="calc-results" style="display: none;">
+                    <div class="leak-header">
+                        <h3>Your Annual Revenue Leakage</h3>
+                        <div class="loss-amount">$<span id="totalLoss">0</span></div>
+                    </div>
+                    
+                    <div class="breakdown">
+                        <h4>The Breakdown:</h4>
+                        <div class="metric">
+                            <span>Patients Lost Annually:</span>
+                            <span id="lostPatients">0</span>
+                        </div>
+                        <div class="metric">
+                            <span>Lost Revenue:</span>
+                            <span>$<span id="lostRevenue">0</span></span>
+                        </div>
+                        <div class="metric">
+                            <span>Replacement Costs:</span>
+                            <span>$<span id="replacementCosts">0</span></span>
+                        </div>
+                    </div>
+                    
+                    <div class="solution">
+                        <h4>With Our Proven System (27% improvement):</h4>
+                        <div class="metric success">
+                            <span>Patients Saved:</span>
+                            <span id="patientsSaved">0</span>
+                        </div>
+                        <div class="metric success">
+                            <span>Revenue Recovered:</span>
+                            <span>$<span id="revenueRecovered">0</span></span>
+                        </div>
+                        <div class="metric success total">
+                            <span>Total Annual Value:</span>
+                            <span>$<span id="totalValue">0</span></span>
+                        </div>
+                        
+                        <p class="monthly-warning">Every month you wait costs approximately $<span id="monthlyCost">0</span> in lost revenue.</p>
+                        
+                        <a href="https://calendly.com/jgallagher-clinicbucket/30min" class="cta-button" target="_blank">
+                            Fix My Leaky Bucket Now
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

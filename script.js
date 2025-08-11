@@ -106,6 +106,53 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Revenue Calculator
+document.getElementById('calculatorForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const patients = parseInt(document.getElementById('patients').value);
+    const fee = parseInt(document.getElementById('fee').value);
+    const retention = parseInt(document.getElementById('retention').value);
+    const acquisition = parseInt(document.getElementById('acquisition').value);
+    
+    if (!patients || !fee || !retention || !acquisition) {
+        alert('Please fill in all fields');
+        return;
+    }
+    
+    // Calculate lifetime value (assuming 2.5 visits on average)
+    const ltv = fee * 2.5;
+    
+    // Calculate current retention and losses
+    const retentionRate = retention / 100;
+    const lostPatients = Math.round(patients * (1 - retentionRate));
+    const lostRevenue = lostPatients * ltv;
+    const replacementCosts = lostPatients * acquisition;
+    const totalLoss = lostRevenue + replacementCosts;
+    
+    // Calculate improvement (27% retention improvement)
+    const improvementRate = 0.27;
+    const patientsSaved = Math.round(lostPatients * improvementRate);
+    const revenueRecovered = patientsSaved * ltv;
+    const costsSaved = patientsSaved * acquisition;
+    const totalValue = revenueRecovered + costsSaved;
+    const monthlyCost = Math.round(totalLoss / 12);
+    
+    // Display results
+    document.getElementById('lostPatients').textContent = lostPatients.toLocaleString();
+    document.getElementById('lostRevenue').textContent = lostRevenue.toLocaleString();
+    document.getElementById('replacementCosts').textContent = replacementCosts.toLocaleString();
+    document.getElementById('totalLoss').textContent = totalLoss.toLocaleString();
+    document.getElementById('patientsSaved').textContent = patientsSaved.toLocaleString();
+    document.getElementById('revenueRecovered').textContent = revenueRecovered.toLocaleString();
+    document.getElementById('totalValue').textContent = totalValue.toLocaleString();
+    document.getElementById('monthlyCost').textContent = monthlyCost.toLocaleString();
+    
+    // Show results
+    document.getElementById('results').style.display = 'block';
+    document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'center' });
+});
+
 // Header scroll effect
 window.addEventListener('scroll', function() {
     const header = document.querySelector('header');
