@@ -71,12 +71,16 @@ nav {
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #1a1a1a;
-    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    height: 40px;
 }
 
+.logo img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
 .nav-links {
     display: flex;
     list-style: none;
