@@ -751,3 +751,8 @@ footer {
     min-height: 40px !important;
     border-radius: 0 0 12px 12px !important;
 }
+/* Logo with text styling */
+.logo {
+    display: flex;
+    align-items: center;
+}
