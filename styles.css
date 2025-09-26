@@ -709,3 +709,20 @@ footer {
     margin-top: 15px;
     font-weight: 500;
 }
+
+/* Fix service card layout for bottom-aligned tags */
+.service-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 280px;
+}
+
+.service-card p {
+    flex-grow: 1;
+}
+
+.service-card .service-tag {
+    margin-top: auto;
+    align-self: flex-start;
+}
