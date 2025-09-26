@@ -710,19 +710,17 @@ footer {
     font-weight: 500;
 }
 
-/* Fix service card layout for bottom-aligned tags */
-.service-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 280px;
+
+/* Align service tags at bottom of cards */
+.services-grid .service-card {
+    position: relative;
+    padding-bottom: 60px; /* Make room for the tag */
+    min-height: 300px;
 }
 
-.service-card p {
-    flex-grow: 1;
-}
-
-.service-card .service-tag {
-    margin-top: auto;
-    align-self: flex-start;
+.services-grid .service-card .service-tag {
+    position: absolute;
+    bottom: 20px;
+    left: 24px;
+    margin-top: 0;
 }
