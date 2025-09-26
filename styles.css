@@ -721,7 +721,7 @@ footer {
 
 .services-grid .service-card {
     position: relative !important;
-    padding: 40px 40px 90px 40px !important;
+    padding: 40px 40px 60px 40px !important;
     min-height: 380px !important;
     display: flex;
     flex-direction: column;
