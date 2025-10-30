@@ -703,8 +703,8 @@ footer {
     display: inline-block;
     background: #2563eb;
     color: white;
-    padding: 4px 12px;
-    border-radius: 20px;
+    padding: 8px 24px;
+    border-radius: 25px;
     font-size: 13px;
     font-weight: 500;
     white-space: nowrap;
@@ -721,10 +721,10 @@ footer {
 
 .services-grid .service-card .service-tag {
     position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0;
-    width: auto;
-    display: inline-block;
+    bottom: 20px;
+    left: 40px;
+    right: 40px;
+    margin: 0 auto;
+    text-align: center;
+    max-width: calc(100% - 80px);
 }
