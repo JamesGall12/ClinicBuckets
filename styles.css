@@ -754,12 +754,12 @@ footer {
 /* Service availability tags */
 .service-tag {
     display: inline-block;
-    background: transparent;
-    color: #2563eb;
-    padding: 8px 24px;
+    background: radial-gradient(ellipse at center, #2563eb 0%, rgba(37, 99, 235, 0.6) 60%, rgba(37, 99, 235, 0) 100%);
+    color: white;
+    padding: 8px 32px;
     border-radius: 25px;
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 500;
     white-space: nowrap;
 }
 
