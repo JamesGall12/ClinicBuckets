@@ -754,9 +754,9 @@ footer {
 /* Service availability tags */
 .service-tag {
     display: inline-block;
-    background: radial-gradient(ellipse at center, #2563eb 0%, rgba(37, 99, 235, 0.6) 60%, rgba(37, 99, 235, 0) 100%);
+    background: #2563eb;
     color: white;
-    padding: 8px 32px;
+    padding: 8px 24px;
     border-radius: 25px;
     font-size: 13px;
     font-weight: 500;
@@ -780,4 +780,9 @@ footer {
     margin: 0 auto;
     text-align: center;
     max-width: calc(100% - 80px);
+}
+
+/* Ensure consistent spacing above service tags */
+.services-grid .service-card p:last-of-type {
+    margin-bottom: 60px; /* Add space before the absolutely positioned tag */
 }
