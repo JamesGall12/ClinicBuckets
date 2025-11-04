@@ -499,14 +499,15 @@ nav {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
-    align-items: flex-start;
+    align-items: center;  /* Changed from flex-start to center for vertical alignment */
 }
 
 .about-image {
     flex: 0 0 50%;  /* Takes exactly 50% width on desktop */
     max-width: 50%;
-    position: sticky;
-    top: 140px;
+    display: flex;
+    align-items: center;  /* Center the image vertically */
+    justify-content: center;  /* Center the image horizontally */
 }
 
 .about-image img {
