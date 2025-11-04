@@ -649,12 +649,15 @@ footer {
 @media (max-width: 1024px) {
     .about-content {
         flex-direction: column;
+        align-items: center;  /* Center everything on tablets */
     }
 
     .about-image {
         flex: 1 1 100%;
         max-width: 100%;
         position: static;
+        display: flex;  /* Make it a flex container */
+        justify-content: center;  /* Center the image container */
     }
     
     /* On tablet/mobile, constrain the image size */
@@ -668,6 +671,12 @@ footer {
     .about-text {
         flex: 1 1 100%;
         max-width: 100%;
+        text-align: center;  /* Center text on tablets */
+    }
+    
+    /* Keep the LinkedIn link centered on tablets */
+    .about-text .linkedin-link {
+        justify-content: center;  /* Center the link */
     }
 }
 
@@ -724,6 +733,15 @@ footer {
     .case-study-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 24px;
+    }
+    
+    /* Reset text alignment to left on mobile */
+    .about-text {
+        text-align: left;  /* Override the center alignment for mobile */
+    }
+    
+    .about-text .linkedin-link {
+        justify-content: flex-start;  /* Reset to left alignment on mobile */
     }
 }
 
