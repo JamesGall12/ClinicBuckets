@@ -656,7 +656,6 @@ footer {
     .about-image {
         flex: 1 1 100%;
         max-width: 100%;
-        position: static;
         display: flex;  /* Make it a flex container */
         justify-content: center;  /* Center the image container */
     }
