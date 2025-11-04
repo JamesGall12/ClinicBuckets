@@ -497,8 +497,8 @@ nav {
 
 .about-content {
     display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 80px;
+    grid-template-columns: 1fr 1fr;  /* Changed to equal halves */
+    gap: 60px;  /* Reduced gap */
     align-items: start;
 }
 
@@ -508,17 +508,19 @@ nav {
 }
 
 .about-image img {
-    width: 350px;  /* increased from 280px */
-    height: 350px;  /* increased from 280px */
-    border-radius: 12px;  /* slightly less rounding */
+    width: 100%;  /* Full width of its container */
+    height: auto;  /* Maintain aspect ratio */
+    max-height: 600px;  /* Prevent it from getting too tall */
+    border-radius: 12px;
     object-fit: cover;
+    object-position: center;  /* Center the image focus */
     border: 1px solid #e2e8f0;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);  /* add subtle shadow */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
 }
 
 .about-image img:hover {
-    transform: scale(1.05);  /* gentle zoom on hover */
+    transform: scale(1.02);  /* Smaller zoom since image is bigger */
 }
 
 .about-text h2 {
@@ -639,6 +641,13 @@ footer {
 
     .about-image {
         position: static;
+    }
+    
+    /* On tablet/mobile, constrain the image size */
+    .about-image img {
+        max-width: 500px;
+        margin: 0 auto;
+        display: block;
     }
 }
 
