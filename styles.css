@@ -508,11 +508,17 @@ nav {
 }
 
 .about-image img {
-    width: 280px;
-    height: 280px;
-    border-radius: 16px;
+    width: 350px;  /* increased from 280px */
+    height: 350px;  /* increased from 280px */
+    border-radius: 12px;  /* slightly less rounding */
     object-fit: cover;
     border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);  /* add subtle shadow */
+    transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.05);  /* gentle zoom on hover */
 }
 
 .about-text h2 {
