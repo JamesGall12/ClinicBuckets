@@ -513,7 +513,7 @@ nav {
     width: 100%;
     height: auto;
     max-height: 700px;  /* Increased max height for better visibility */
-    border-radius: 12px;
+    border-radius: 12px;  /* Back to slightly rounded corners */
     object-fit: cover;
     object-position: center;
     border: 1px solid #e2e8f0;
