@@ -497,8 +497,8 @@ nav {
 
 .about-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;  /* Changed to equal halves */
-    gap: 60px;  /* Reduced gap */
+    grid-template-columns: 500px 1fr;  /* Increased from 300px to 500px for image column */
+    gap: 60px;  /* Reduced from 80px */
     align-items: start;
 }
 
@@ -508,19 +508,20 @@ nav {
 }
 
 .about-image img {
-    width: 100%;  /* Full width of its container */
+    width: 100%;  /* Full width of its container (now 500px) */
     height: auto;  /* Maintain aspect ratio */
-    max-height: 600px;  /* Prevent it from getting too tall */
+    max-height: 600px;
     border-radius: 12px;
     object-fit: cover;
-    object-position: center;  /* Center the image focus */
+    object-position: center;
     border: 1px solid #e2e8f0;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
 }
 
 .about-image img:hover {
-    transform: scale(1.02);  /* Smaller zoom since image is bigger */
+    transform: scale(1.02);
+}
 }
 
 .about-text h2 {
