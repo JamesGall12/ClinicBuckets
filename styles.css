@@ -490,27 +490,29 @@ nav {
 }
 
 
-/* About Section */
+/* About Section - UPDATED */
 .about {
     background: white;
 }
 
 .about-content {
-    display: grid;
-    grid-template-columns: 500px 1fr;  /* Increased from 300px to 500px for image column */
-    gap: 60px;  /* Reduced from 80px */
-    align-items: start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
 }
 
 .about-image {
+    flex: 0 0 50%;  /* Takes exactly 50% width on desktop */
+    max-width: 50%;
     position: sticky;
     top: 140px;
 }
 
 .about-image img {
-    width: 100%;  /* Full width of its container (now 500px) */
-    height: auto;  /* Maintain aspect ratio */
-    max-height: 600px;
+    width: 100%;
+    height: auto;
+    max-height: 700px;  /* Increased max height for better visibility */
     border-radius: 12px;
     object-fit: cover;
     object-position: center;
@@ -522,6 +524,17 @@ nav {
 .about-image img:hover {
     transform: scale(1.02);
 }
+
+.about-text {
+    flex: 1 1 45%;  /* Takes remaining space initially */
+    min-width: 45%;
+}
+
+/* When text gets longer than image, it flows full width below */
+.about-text-extended {
+    flex: 1 1 100%;
+    width: 100%;
+    margin-top: 20px;
 }
 
 .about-text h2 {
@@ -635,20 +648,26 @@ footer {
 /* Responsive */
 @media (max-width: 1024px) {
     .about-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
+        flex-direction: column;
     }
 
     .about-image {
+        flex: 1 1 100%;
+        max-width: 100%;
         position: static;
     }
     
     /* On tablet/mobile, constrain the image size */
     .about-image img {
         max-width: 500px;
+        max-height: 500px;
         margin: 0 auto;
         display: block;
+    }
+    
+    .about-text {
+        flex: 1 1 100%;
+        max-width: 100%;
     }
 }
 
