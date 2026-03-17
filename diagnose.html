@@ -4,112 +4,128 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ClinicBucket — Diagnose Your Leaky Bucket</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Find exactly where your cannabis clinic is leaking revenue. Free interactive diagnostic tool from ClinicBucket.">
+<link rel="icon" type="image/png" href="ClinicBucket logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #0a0a0a;
-  --surface: #111111;
-  --surface2: #1a1a1a;
-  --surface3: #222222;
-  --border: rgba(255,255,255,0.07);
-  --border2: rgba(255,255,255,0.12);
-  --text: #f0ede8;
-  --text2: #888880;
-  --text3: #555550;
-  --green: #00e090;
-  --green-dim: rgba(0,224,144,0.12);
-  --green-dim2: rgba(0,224,144,0.06);
-  --red: #ff4444;
-  --red-dim: rgba(255,68,68,0.12);
-  --amber: #ffaa00;
-  --amber-dim: rgba(255,170,0,0.1);
-  --blue: #4488ff;
-  --blue-dim: rgba(68,136,255,0.1);
+  --blue: #2563eb;
+  --blue-dark: #1d4ed8;
+  --blue-light: #eff6ff;
+  --blue-mid: #dbeafe;
+  --red: #dc2626;
+  --red-light: #fef2f2;
+  --amber: #d97706;
+  --amber-light: #fffbeb;
+  --green: #059669;
+  --green-light: #ecfdf5;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --border: #e2e8f0;
+  --border2: #cbd5e1;
+  --text: #1e293b;
+  --text2: #64748b;
+  --text3: #94a3b8;
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ── Nav ── */
-nav {
+/* ── Nav — matches clinicbucket.com ── */
+header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  height: 64px;
+  display: flex; align-items: center;
+}
+.nav-inner {
+  width: 100%; max-width: 1100px; margin: 0 auto;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 1rem 2rem;
-  background: rgba(10,10,10,0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 0.5px solid var(--border);
 }
 .nav-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 20px;
-  letter-spacing: 0.06em;
-  color: var(--text);
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
 }
-.nav-logo span { color: var(--green); }
-.nav-tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: var(--text3);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+.nav-logo img { height: 28px; }
+.nav-logo-text { font-size: 16px; font-weight: 700; }
+.nav-logo-text .black { color: #000; }
+.nav-logo-text .blue { color: var(--blue); }
+.nav-links { display: flex; align-items: center; gap: 1.5rem; }
+.nav-links a {
+  font-size: 14px; color: var(--text2); text-decoration: none;
+  font-weight: 400; transition: color 0.15s;
 }
+.nav-links a:hover { color: var(--text); }
+.nav-back {
+  font-size: 13px; color: var(--text2); text-decoration: none;
+  display: flex; align-items: center; gap: 4px;
+  transition: color 0.15s;
+}
+.nav-back:hover { color: var(--blue); }
+@media(max-width:600px) { .nav-links { display: none; } }
 
 /* ── Hero ── */
 .hero {
-  padding: 8rem 2rem 4rem;
+  padding: 96px 2rem 48px;
   max-width: 1100px;
   margin: 0 auto;
+  text-align: center;
 }
-.hero-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.15em;
+.hero-tag {
+  display: inline-block;
+  background: var(--blue-light);
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--green);
-  margin-bottom: 1rem;
+  padding: 4px 12px;
+  border-radius: 99px;
+  margin-bottom: 1.25rem;
 }
 .hero h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(48px, 8vw, 96px);
-  line-height: 0.95;
-  letter-spacing: 0.02em;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 700;
   color: var(--text);
-  margin-bottom: 1.5rem;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
 }
-.hero h1 em {
-  font-style: normal;
-  color: var(--green);
-}
+.hero h1 span { color: var(--blue); }
 .hero p {
-  font-size: 16px;
+  font-size: 17px;
   color: var(--text2);
+  font-weight: 400;
   max-width: 520px;
-  font-weight: 300;
+  margin: 0 auto 2rem;
   line-height: 1.7;
-  margin-bottom: 2rem;
 }
 .hero-cta {
   display: inline-flex; align-items: center; gap: 8px;
-  font-size: 13px; font-weight: 500;
-  color: var(--bg);
-  background: var(--green);
-  border: none; border-radius: 6px;
-  padding: 10px 20px; cursor: pointer;
+  background: var(--blue);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
   text-decoration: none;
-  transition: opacity 0.15s;
+  border: none; cursor: pointer;
+  transition: background 0.15s;
 }
-.hero-cta:hover { opacity: 0.85; }
+.hero-cta:hover { background: var(--blue-dark); }
 
 /* ── Main layout ── */
 .main {
@@ -117,7 +133,7 @@ nav {
   margin: 0 auto;
   padding: 0 2rem 6rem;
   display: grid;
-  grid-template-columns: 340px 1fr;
+  grid-template-columns: 320px 1fr;
   gap: 24px;
   align-items: start;
 }
@@ -125,304 +141,72 @@ nav {
 /* ── Inputs panel ── */
 .inputs-panel {
   background: var(--surface);
-  border: 0.5px solid var(--border);
-  border-radius: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
   padding: 1.5rem;
   position: sticky;
-  top: 72px;
+  top: 80px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
 .panel-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.12em;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text3);
   margin-bottom: 1.25rem;
 }
 .clinic-name-wrap { margin-bottom: 1.5rem; }
 .clinic-name-wrap input {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
   font-weight: 500;
-  background: transparent;
-  border: none;
-  border-bottom: 0.5px solid var(--border2);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
   color: var(--text);
   width: 100%;
-  padding: 4px 0 8px;
+  padding: 8px 12px;
   outline: none;
   transition: border-color 0.15s;
 }
-.clinic-name-wrap input:focus { border-color: var(--green); }
-.clinic-name-wrap input::placeholder { color: var(--text3); font-weight: 300; }
+.clinic-name-wrap input:focus { border-color: var(--blue); }
+.clinic-name-wrap input::placeholder { color: var(--text3); font-weight: 400; }
 
-.slider-group { margin-bottom: 1.25rem; }
-.slider-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
-.slider-label { font-size: 12px; color: var(--text2); font-weight: 400; }
-.slider-val {
-  font-family: 'DM Mono', monospace;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text);
-}
-.slider-val span { font-size: 10px; color: var(--text3); margin-left: 2px; }
+.slider-group { margin-bottom: 1.1rem; }
+.slider-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
+.slider-label { font-size: 12px; color: var(--text2); font-weight: 500; }
+.slider-val { font-size: 13px; font-weight: 600; color: var(--blue); font-variant-numeric: tabular-nums; }
 
 input[type="range"] {
   -webkit-appearance: none;
-  width: 100%;
-  height: 3px;
-  background: var(--surface3);
+  width: 100%; height: 4px;
+  background: var(--border);
   border-radius: 99px;
-  outline: none;
-  cursor: pointer;
+  outline: none; cursor: pointer;
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 14px; height: 14px;
+  width: 16px; height: 16px;
   border-radius: 50%;
-  background: var(--green);
+  background: var(--blue);
   cursor: pointer;
+  box-shadow: 0 1px 3px rgba(37,99,235,0.3);
   transition: transform 0.1s;
 }
-input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); }
 input[type="range"]::-moz-range-thumb {
-  width: 14px; height: 14px;
+  width: 16px; height: 16px;
   border-radius: 50%;
-  background: var(--green);
-  border: none;
-  cursor: pointer;
+  background: var(--blue);
+  border: none; cursor: pointer;
 }
+.slider-hint { font-size: 11px; color: var(--text3); margin-top: 3px; line-height: 1.4; }
 
-.slider-hint { font-size: 10px; color: var(--text3); margin-top: 3px; line-height: 1.4; }
+.divider { height: 1px; background: var(--border); margin: 1.25rem 0; }
 
-.divider { height: 0.5px; background: var(--border); margin: 1.25rem 0; }
-
-/* ── Dashboard panel ── */
-.dashboard { display: flex; flex-direction: column; gap: 16px; }
-
-/* ── Gut punch ── */
-.gut-punch {
-  background: var(--surface);
-  border: 0.5px solid var(--border);
-  border-radius: 16px;
-  padding: 2rem;
-  position: relative;
-  overflow: hidden;
-}
-.gut-punch::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--red);
-}
-.gut-punch-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--red);
-  margin-bottom: 0.75rem;
-}
-.gut-punch-number {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(48px, 6vw, 72px);
-  line-height: 1;
-  color: var(--text);
-  letter-spacing: 0.02em;
-  margin-bottom: 0.5rem;
-  transition: all 0.3s ease;
-}
-.gut-punch-sub {
-  font-size: 14px;
-  color: var(--text2);
-  font-weight: 300;
-  max-width: 420px;
-  line-height: 1.6;
-}
-.gut-punch-sub strong { color: var(--text); font-weight: 500; }
-
-/* ── Stats grid ── */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-.stat-card {
-  background: var(--surface);
-  border: 0.5px solid var(--border);
-  border-radius: 12px;
-  padding: 1.25rem;
-  position: relative;
-  overflow: hidden;
-  transition: border-color 0.2s;
-}
-.stat-card:hover { border-color: var(--border2); }
-.stat-card-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text3);
-  margin-bottom: 8px;
-}
-.stat-card-number {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 36px;
-  line-height: 1;
-  letter-spacing: 0.02em;
-  margin-bottom: 4px;
-  transition: color 0.3s;
-}
-.stat-card-sub { font-size: 11px; color: var(--text3); line-height: 1.4; }
-.stat-good { color: var(--green); }
-.stat-bad { color: var(--red); }
-.stat-warn { color: var(--amber); }
-.stat-neutral { color: var(--text); }
-
-.stat-bar-wrap { margin-top: 10px; height: 3px; background: var(--surface3); border-radius: 99px; overflow: hidden; }
-.stat-bar { height: 100%; border-radius: 99px; transition: width 0.4s ease; }
-
-/* ── Bucket visual ── */
-.bucket-section {
-  background: var(--surface);
-  border: 0.5px solid var(--border);
-  border-radius: 16px;
-  padding: 1.5rem;
-}
-.section-title {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text3);
-  margin-bottom: 1.25rem;
-}
-.bucket-wrap {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1px;
-  background: var(--border);
-  border-radius: 10px;
-  overflow: hidden;
-}
-.bucket-col {
-  background: var(--surface2);
-  padding: 1.25rem 1rem;
-  text-align: center;
-}
-.bucket-col-icon {
-  font-size: 24px;
-  margin-bottom: 8px;
-  display: block;
-}
-.bucket-col-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 18px;
-  letter-spacing: 0.05em;
-  margin-bottom: 4px;
-}
-.bucket-col-title.green { color: var(--green); }
-.bucket-col-title.amber { color: var(--amber); }
-.bucket-col-title.red { color: var(--red); }
-.bucket-col-stat {
-  font-family: 'DM Mono', monospace;
-  font-size: 22px;
-  font-weight: 500;
-  line-height: 1;
-  margin: 8px 0 4px;
-}
-.bucket-col-desc { font-size: 11px; color: var(--text3); line-height: 1.4; }
-
-/* ── Revenue breakdown ── */
-.revenue-section {
-  background: var(--surface);
-  border: 0.5px solid var(--border);
-  border-radius: 16px;
-  padding: 1.5rem;
-}
-.rev-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 0.5px solid var(--border);
-  gap: 12px;
-}
-.rev-row:last-child { border-bottom: none; }
-.rev-label { font-size: 13px; color: var(--text2); flex: 1; }
-.rev-label small { display: block; font-size: 10px; color: var(--text3); margin-top: 2px; }
-.rev-val {
-  font-family: 'DM Mono', monospace;
-  font-size: 14px;
-  font-weight: 500;
-  text-align: right;
-  transition: color 0.3s;
-}
-.rev-bar-wrap { width: 80px; height: 4px; background: var(--surface3); border-radius: 99px; overflow: hidden; }
-.rev-bar { height: 100%; border-radius: 99px; transition: width 0.4s ease; }
-
-/* ── Risk table ── */
-.risk-section {
-  background: var(--surface);
-  border: 0.5px solid var(--border);
-  border-radius: 16px;
-  padding: 1.5rem;
-}
-.risk-items { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
-.risk-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 12px;
-  background: var(--surface2);
-  border-radius: 8px;
-  border-left: 2px solid transparent;
-}
-.risk-item.high { border-color: var(--red); }
-.risk-item.medium { border-color: var(--amber); }
-.risk-item.low { border-color: var(--green); }
-.risk-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-.risk-dot.high { background: var(--red); }
-.risk-dot.medium { background: var(--amber); }
-.risk-dot.low { background: var(--green); }
-.risk-text { flex: 1; font-size: 12px; color: var(--text2); line-height: 1.4; }
-.risk-text strong { color: var(--text); font-weight: 500; }
-.risk-impact {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  color: var(--text3);
-  text-align: right;
-  flex-shrink: 0;
-}
-
-/* ── CTA section ── */
-.cta-section {
-  background: var(--surface);
-  border: 0.5px solid var(--green);
-  border-radius: 16px;
-  padding: 2rem;
-  text-align: center;
-}
-.cta-section h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 32px;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
-}
-.cta-section p { font-size: 14px; color: var(--text2); font-weight: 300; margin-bottom: 1.5rem; max-width: 400px; margin-left: auto; margin-right: auto; }
-.cta-btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px; font-weight: 500;
-  color: var(--bg);
-  background: var(--green);
-  border: none; border-radius: 8px;
-  padding: 12px 28px; cursor: pointer;
-  transition: opacity 0.15s;
-}
-.cta-btn:hover { opacity: 0.85; }
-.cta-sub { font-size: 11px; color: var(--text3); margin-top: 10px; }
+.benchmarks { font-size: 11px; color: var(--text3); line-height: 1.8; }
+.benchmarks strong { color: var(--text2); font-weight: 600; }
 
 /* ── Don't know panel ── */
 .dont-know-btn {
@@ -430,83 +214,246 @@ input[type="range"]::-moz-range-thumb {
   margin-top: 1rem;
   padding: 10px 14px;
   background: transparent;
-  border: 0.5px dashed var(--border2);
+  border: 1px dashed var(--border2);
   border-radius: 8px;
   color: var(--text3);
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 12px;
+  font-weight: 500;
   cursor: pointer;
   text-align: left;
   transition: all 0.15s;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: flex; align-items: center; justify-content: space-between;
 }
 .dont-know-btn:hover { border-color: var(--amber); color: var(--amber); }
 .dont-know-panel {
   display: none;
   margin-top: 1rem;
-  background: rgba(255,170,0,0.06);
-  border: 0.5px solid rgba(255,170,0,0.2);
-  border-radius: 12px;
-  padding: 1.25rem;
+  background: var(--amber-light);
+  border: 1px solid #fde68a;
+  border-radius: 10px;
+  padding: 1.1rem;
 }
 .dont-know-panel.open { display: block; }
 .dont-know-title {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--amber);
-  margin-bottom: 0.75rem;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--amber); margin-bottom: 0.6rem;
 }
 .dont-know-intro {
-  font-size: 13px;
-  color: var(--text2);
-  line-height: 1.65;
-  margin-bottom: 1rem;
-  font-weight: 300;
+  font-size: 12px; color: var(--text2);
+  line-height: 1.6; margin-bottom: 0.9rem;
 }
-.dont-know-intro strong { color: var(--text); font-weight: 500; }
-.audit-findings { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.25rem; }
+.dont-know-intro strong { color: var(--text); }
+.audit-findings { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1rem; }
 .audit-finding {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
+  display: flex; gap: 8px; align-items: flex-start;
   padding: 8px 10px;
-  background: rgba(0,0,0,0.2);
+  background: #fff;
   border-radius: 7px;
+  border: 1px solid #fde68a;
 }
-.audit-finding-icon { font-size: 13px; flex-shrink: 0; margin-top: 1px; }
-.audit-finding-body { font-size: 12px; color: var(--text2); line-height: 1.5; }
-.audit-finding-body strong { color: var(--text); font-weight: 500; }
+.audit-finding-icon { font-size: 12px; flex-shrink: 0; margin-top: 1px; }
+.audit-finding-body { font-size: 11px; color: var(--text2); line-height: 1.5; }
+.audit-finding-body strong { color: var(--text); font-weight: 600; }
 .audit-finding-stat {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  color: var(--amber);
-  margin-top: 2px;
-  display: block;
+  font-size: 10px; color: var(--amber);
+  font-weight: 600; margin-top: 1px; display: block;
 }
 .dont-know-cta {
-  display: block;
-  width: 100%;
-  padding: 10px 16px;
-  background: var(--amber);
-  color: #000;
-  border: none;
-  border-radius: 8px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  transition: opacity 0.15s;
+  display: block; width: 100%;
+  padding: 9px 16px;
+  background: var(--blue); color: #fff;
+  border: none; border-radius: 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px; font-weight: 600;
+  cursor: pointer; text-align: center;
+  text-decoration: none; transition: background 0.15s;
 }
-.dont-know-cta:hover { opacity: 0.85; }
-.dont-know-sub { font-size: 11px; color: var(--text3); text-align: center; margin-top: 6px; }
+.dont-know-cta:hover { background: var(--blue-dark); }
+.dont-know-sub { font-size: 10px; color: var(--text3); text-align: center; margin-top: 5px; }
 
-/* ── Responsive ── */
+/* ── Dashboard ── */
+.dashboard { display: flex; flex-direction: column; gap: 16px; }
+
+/* Gut punch */
+.gut-punch {
+  background: var(--surface);
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  padding: 1.75rem;
+  border-top: 3px solid var(--red);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.gut-punch-label {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 0.6rem;
+}
+.gut-punch-number {
+  font-size: clamp(40px, 5vw, 60px);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text);
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s;
+  font-variant-numeric: tabular-nums;
+}
+.gut-punch-sub {
+  font-size: 14px; color: var(--text2);
+  font-weight: 400; max-width: 500px; line-height: 1.6;
+}
+.gut-punch-sub strong { color: var(--text); font-weight: 600; }
+
+/* Stats grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.stat-card-label {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  color: var(--text3); margin-bottom: 6px;
+}
+.stat-card-number {
+  font-size: 28px; font-weight: 700;
+  line-height: 1; letter-spacing: -0.02em;
+  margin-bottom: 3px;
+  font-variant-numeric: tabular-nums;
+  transition: color 0.2s;
+}
+.stat-card-sub { font-size: 11px; color: var(--text3); line-height: 1.4; }
+.stat-good { color: var(--green); }
+.stat-bad { color: var(--red); }
+.stat-warn { color: var(--amber); }
+.stat-neutral { color: var(--text); }
+.stat-bar-wrap { margin-top: 8px; height: 3px; background: var(--border); border-radius: 99px; overflow: hidden; }
+.stat-bar { height: 100%; border-radius: 99px; transition: width 0.4s ease; }
+
+/* Bucket visual */
+.bucket-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.section-title {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  color: var(--text3); margin-bottom: 1.1rem;
+}
+.bucket-wrap {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px; background: var(--border);
+  border-radius: 8px; overflow: hidden;
+}
+.bucket-col { background: var(--bg); padding: 1.1rem 1rem; text-align: center; }
+.bucket-col-icon { font-size: 22px; margin-bottom: 6px; display: block; }
+.bucket-col-title { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
+.bucket-col-title.green { color: var(--green); }
+.bucket-col-title.amber { color: var(--amber); }
+.bucket-col-title.red { color: var(--red); }
+.bucket-col-stat {
+  font-size: 22px; font-weight: 700;
+  line-height: 1; margin: 6px 0 3px;
+  font-variant-numeric: tabular-nums;
+}
+.bucket-col-desc { font-size: 11px; color: var(--text3); line-height: 1.4; }
+
+/* Revenue section */
+.revenue-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.rev-row {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  gap: 12px;
+}
+.rev-row:last-child { border-bottom: none; }
+.rev-label { font-size: 13px; color: var(--text2); flex: 1; font-weight: 400; }
+.rev-label small { display: block; font-size: 10px; color: var(--text3); margin-top: 1px; }
+.rev-val {
+  font-size: 14px; font-weight: 600;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  transition: color 0.2s;
+  min-width: 70px;
+}
+.rev-bar-wrap { width: 70px; height: 4px; background: var(--border); border-radius: 99px; overflow: hidden; }
+.rev-bar { height: 100%; border-radius: 99px; transition: width 0.4s ease; }
+
+/* Risk section */
+.risk-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.risk-items { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+.risk-item {
+  display: flex; align-items: flex-start;
+  gap: 12px; padding: 10px 12px;
+  border-radius: 8px;
+  border-left: 3px solid transparent;
+}
+.risk-item.high { background: var(--red-light); border-color: var(--red); }
+.risk-item.medium { background: var(--amber-light); border-color: var(--amber); }
+.risk-item.low { background: var(--green-light); border-color: var(--green); }
+.risk-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+.risk-dot.high { background: var(--red); }
+.risk-dot.medium { background: var(--amber); }
+.risk-dot.low { background: var(--green); }
+.risk-text { flex: 1; font-size: 13px; color: var(--text2); line-height: 1.5; }
+.risk-text strong { color: var(--text); font-weight: 600; }
+.risk-impact {
+  font-size: 11px; font-weight: 600;
+  color: var(--text3); text-align: right;
+  flex-shrink: 0; min-width: 80px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* CTA section */
+.cta-section {
+  background: var(--blue);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+}
+.cta-section h2 {
+  font-size: 26px; font-weight: 700;
+  color: #fff; letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+}
+.cta-section p { font-size: 14px; color: rgba(255,255,255,0.8); font-weight: 400; margin-bottom: 1.5rem; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+.cta-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px; font-weight: 600;
+  color: var(--blue);
+  background: #fff;
+  border: none; border-radius: 8px;
+  padding: 12px 28px; cursor: pointer;
+  transition: opacity 0.15s;
+  text-decoration: none;
+}
+.cta-btn:hover { opacity: 0.92; }
+.cta-sub { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 10px; }
+
+/* Responsive */
 @media (max-width: 860px) {
   .main { grid-template-columns: 1fr; }
   .inputs-panel { position: static; }
@@ -514,46 +461,46 @@ input[type="range"]::-moz-range-thumb {
 }
 @media (max-width: 500px) {
   .stats-grid { grid-template-columns: 1fr; }
-  .hero { padding: 6rem 1.25rem 3rem; }
+  .hero { padding: 80px 1.25rem 2rem; }
   .main { padding: 0 1.25rem 4rem; }
-  nav { padding: 1rem 1.25rem; }
+  header { padding: 0 1.25rem; }
   .bucket-wrap { grid-template-columns: 1fr; }
 }
-
-/* ── Animations ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.fade-up { animation: fadeUp 0.5s ease forwards; }
-.fade-up-2 { animation: fadeUp 0.5s 0.1s ease both; }
-.fade-up-3 { animation: fadeUp 0.5s 0.2s ease both; }
-.fade-up-4 { animation: fadeUp 0.5s 0.3s ease both; }
-
-/* number transition */
-.num-transition { transition: all 0.35s cubic-bezier(0.4,0,0.2,1); }
 </style>
 </head>
 <body>
 
-<nav>
-  <a href="https://clinicbucket.com" style="font-size:12px;color:var(--text3);text-decoration:none;transition:color 0.15s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--text3)'">← clinicbucket.com</a>
-  <div class="nav-logo">Clinic<span>Bucket</span></div>
-  <div class="nav-tag">Revenue Diagnostic</div>
-</nav>
+<!-- Header — matches clinicbucket.com -->
+<header>
+  <div class="nav-inner">
+    <a href="https://clinicbucket.com" class="nav-logo">
+      <img src="https://clinicbucket.com/ClinicBucket logo.png" alt="ClinicBucket" onerror="this.style.display='none'">
+      <span class="nav-logo-text"><span class="black">Clinic</span><span class="blue">Bucket</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="https://clinicbucket.com#process">Process</a>
+      <a href="https://clinicbucket.com#results">Results</a>
+      <a href="https://clinicbucket.com#about">About</a>
+      <a href="https://clinicbucket.com#contact">Contact</a>
+      <a href="https://calendly.com/jgallagher-clinicbucket/30min" target="_blank" style="background:var(--blue);color:#fff;padding:8px 16px;border-radius:6px;font-weight:600;font-size:13px">Book a call</a>
+    </div>
+  </div>
+</header>
 
-<div class="hero fade-up">
-  <div class="hero-label">Free clinic diagnostic</div>
-  <h1>Find Your<br><em>Leaky</em><br>Bucket</h1>
-  <p>Most clinics spend thousands filling the bucket with new patients — while losing just as many through the holes. Adjust the sliders to see exactly where your revenue is leaking.</p>
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-tag">Free clinic diagnostic</div>
+  <h1>Find Your <span>Leaky Bucket</span></h1>
+  <p>Most clinics spend thousands filling the bucket with new patients — while losing just as many through the holes. Move the sliders to see exactly where your revenue is leaking.</p>
   <a href="#diagnostic" class="hero-cta">Run the diagnostic ↓</a>
 </div>
 
+<!-- Main -->
 <div class="main" id="diagnostic">
 
   <!-- LEFT: Inputs -->
-  <div class="inputs-panel fade-up-2">
-    <div class="panel-label">Your clinic</div>
+  <div class="inputs-panel">
+    <div class="panel-label">Your clinic numbers</div>
 
     <div class="clinic-name-wrap">
       <input type="text" id="clinicName" placeholder="Clinic name (optional)" maxlength="40">
@@ -562,7 +509,7 @@ input[type="range"]::-moz-range-thumb {
     <div class="slider-group">
       <div class="slider-header">
         <span class="slider-label">Total active patients</span>
-        <span class="slider-val" id="v-patients">500 <span>pts</span></span>
+        <span class="slider-val" id="v-patients">500</span>
       </div>
       <input type="range" id="s-patients" min="50" max="5000" step="50" value="500" oninput="update()">
       <div class="slider-hint">Patients with at least one appointment in the last 12 months</div>
@@ -571,7 +518,7 @@ input[type="range"]::-moz-range-thumb {
     <div class="slider-group">
       <div class="slider-header">
         <span class="slider-label">New patients per month</span>
-        <span class="slider-val" id="v-newpts">40 <span>pts/mo</span></span>
+        <span class="slider-val" id="v-newpts">40</span>
       </div>
       <input type="range" id="s-newpts" min="5" max="300" step="5" value="40" oninput="update()">
       <div class="slider-hint">Average new patient bookings monthly</div>
@@ -580,7 +527,7 @@ input[type="range"]::-moz-range-thumb {
     <div class="slider-group">
       <div class="slider-header">
         <span class="slider-label">Rebooking rate</span>
-        <span class="slider-val" id="v-rebook">55 <span>%</span></span>
+        <span class="slider-val" id="v-rebook">55%</span>
       </div>
       <input type="range" id="s-rebook" min="10" max="95" step="1" value="55" oninput="update()">
       <div class="slider-hint">% of patients who rebook after their first appointment</div>
@@ -589,16 +536,16 @@ input[type="range"]::-moz-range-thumb {
     <div class="slider-group">
       <div class="slider-header">
         <span class="slider-label">Avg monthly spend per patient</span>
-        <span class="slider-val" id="v-spend">£<span id="v-spend-n">180</span></span>
+        <span class="slider-val" id="v-spend">£180</span>
       </div>
       <input type="range" id="s-spend" min="50" max="600" step="10" value="180" oninput="update()">
-      <div class="slider-hint">Average monthly revenue per active patient (consult + prescriptions)</div>
+      <div class="slider-hint">Average monthly revenue per active patient</div>
     </div>
 
     <div class="slider-group">
       <div class="slider-header">
         <span class="slider-label">Monthly Google Ads spend</span>
-        <span class="slider-val" id="v-adspend">£<span id="v-adspend-n">3000</span></span>
+        <span class="slider-val" id="v-adspend">£3,000</span>
       </div>
       <input type="range" id="s-adspend" min="0" max="20000" step="500" value="3000" oninput="update()">
       <div class="slider-hint">Monthly paid acquisition budget</div>
@@ -607,15 +554,12 @@ input[type="range"]::-moz-range-thumb {
     <div class="slider-group">
       <div class="slider-header">
         <span class="slider-label">Lead to patient conversion</span>
-        <span class="slider-val" id="v-conv">35 <span>%</span></span>
+        <span class="slider-val" id="v-conv">35%</span>
       </div>
       <input type="range" id="s-conv" min="5" max="80" step="1" value="35" oninput="update()">
       <div class="slider-hint">% of inbound enquiries that become paying patients</div>
     </div>
 
-    <div class="divider"></div>
-
-    <!-- Don't know your numbers? -->
     <button class="dont-know-btn" onclick="toggleDontKnow(this)">
       <span>🤷 Don't know your numbers?</span>
       <span id="dk-arrow">↓</span>
@@ -631,14 +575,14 @@ input[type="range"]::-moz-range-thumb {
           <span class="audit-finding-icon">🕳️</span>
           <div class="audit-finding-body">
             <strong>Rebooking rate sitting at 45–55%</strong>
-            <span class="audit-finding-stat">Nearly half of all new patients never return after their first visit</span>
+            <span class="audit-finding-stat">Nearly half of new patients never return after their first visit</span>
           </div>
         </div>
         <div class="audit-finding">
           <span class="audit-finding-icon">💸</span>
           <div class="audit-finding-body">
-            <strong>Google Ads burning £120–180 per patient</strong>
-            <span class="audit-finding-stat">2x what it should cost — due to compliance gaps and poor targeting</span>
+            <strong>Google Ads costing £120–180 per patient</strong>
+            <span class="audit-finding-stat">2x what it should — due to compliance gaps and poor targeting</span>
           </div>
         </div>
         <div class="audit-finding">
@@ -659,107 +603,101 @@ input[type="range"]::-moz-range-thumb {
           <span class="audit-finding-icon">📱</span>
           <div class="audit-finding-body">
             <strong>Zero automated follow-up</strong>
-            <span class="audit-finding-stat">Patients go quiet and nothing happens — no SMS, no check-in, no re-engagement</span>
+            <span class="audit-finding-stat">Patients go quiet and nothing happens — no SMS, no check-in</span>
           </div>
         </div>
       </div>
-      <div class="dont-know-intro" style="margin-bottom:1rem">
-        If this sounds familiar, <strong>the first call is a free audit</strong>. We find your numbers, show you exactly where the leaks are, and tell you what to fix first.
+      <div class="dont-know-intro">
+        If this sounds familiar, <strong>the first call is a free audit.</strong> We find your numbers, show you where the leaks are, and tell you what to fix first.
       </div>
       <a href="https://calendly.com/jgallagher-clinicbucket/30min" target="_blank" class="dont-know-cta">Book a free bucket inspection →</a>
       <div class="dont-know-sub">30 minutes. No commitment. We'll bring the numbers.</div>
     </div>
 
     <div class="divider"></div>
-
-    <div class="panel-label" style="margin-bottom:0.5rem">What good looks like</div>
-    <div style="font-size:11px;color:var(--text3);line-height:1.6">
-      Rebooking rate <strong style="color:var(--text2)">75–85%</strong><br>
-      Conversion rate <strong style="color:var(--text2)">50–65%</strong><br>
-      Cost per patient <strong style="color:var(--text2)">&lt;£80</strong><br>
-      90-day retention <strong style="color:var(--text2)">&gt;70%</strong>
+    <div class="panel-label" style="margin-bottom:0.4rem">What good looks like</div>
+    <div class="benchmarks">
+      Rebooking rate <strong>75–85%</strong><br>
+      Conversion rate <strong>50–65%</strong><br>
+      Cost per patient <strong>&lt;£80</strong><br>
+      90-day retention <strong>&gt;70%</strong>
     </div>
   </div>
 
   <!-- RIGHT: Dashboard -->
   <div class="dashboard">
 
-    <!-- Gut punch -->
-    <div class="gut-punch fade-up-2">
+    <div class="gut-punch">
       <div class="gut-punch-label">Monthly revenue leaking from your bucket</div>
-      <div class="gut-punch-number num-transition" id="gut-number">£0</div>
+      <div class="gut-punch-number" id="gut-number">£0</div>
       <div class="gut-punch-sub" id="gut-sub">Adjust the sliders to calculate your retention gap.</div>
     </div>
 
-    <!-- Stats grid -->
-    <div class="stats-grid fade-up-3">
+    <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-card-label">Monthly Revenue</div>
-        <div class="stat-card-number stat-neutral num-transition" id="s-mrr">£0</div>
-        <div class="stat-card-sub">Current active patient base</div>
+        <div class="stat-card-number stat-neutral" id="s-mrr">£0</div>
+        <div class="stat-card-sub">current patient base</div>
         <div class="stat-bar-wrap"><div class="stat-bar" id="bar-mrr" style="background:var(--green);width:0%"></div></div>
       </div>
       <div class="stat-card">
-        <div class="stat-card-label">Cost Per New Patient</div>
-        <div class="stat-card-number num-transition" id="s-cpp">£0</div>
-        <div class="stat-card-sub" id="cpp-sub">From paid ads</div>
+        <div class="stat-card-label">Cost Per Patient</div>
+        <div class="stat-card-number" id="s-cpp">N/A</div>
+        <div class="stat-card-sub" id="cpp-sub">from paid ads</div>
         <div class="stat-bar-wrap"><div class="stat-bar" id="bar-cpp" style="background:var(--green);width:0%"></div></div>
       </div>
       <div class="stat-card">
         <div class="stat-card-label">Patients Lost / Month</div>
-        <div class="stat-card-number num-transition" id="s-lost">0</div>
-        <div class="stat-card-sub" id="lost-sub">Based on rebooking rate</div>
+        <div class="stat-card-number stat-bad" id="s-lost">0</div>
+        <div class="stat-card-sub" id="lost-sub">dropping off</div>
         <div class="stat-bar-wrap"><div class="stat-bar" id="bar-lost" style="background:var(--red);width:0%"></div></div>
       </div>
       <div class="stat-card">
         <div class="stat-card-label">Patient LTV (12mo)</div>
-        <div class="stat-card-number stat-neutral num-transition" id="s-ltv">£0</div>
-        <div class="stat-card-sub" id="ltv-sub">Average lifetime value</div>
+        <div class="stat-card-number stat-neutral" id="s-ltv">£0</div>
+        <div class="stat-card-sub">average lifetime value</div>
         <div class="stat-bar-wrap"><div class="stat-bar" id="bar-ltv" style="background:var(--blue);width:0%"></div></div>
       </div>
       <div class="stat-card">
         <div class="stat-card-label">90-day Retention</div>
-        <div class="stat-card-number num-transition" id="s-ret90">0%</div>
-        <div class="stat-card-sub" id="ret90-sub">Patients retained at 3 months</div>
+        <div class="stat-card-number" id="s-ret90">0%</div>
+        <div class="stat-card-sub" id="ret90-sub">patients at 3 months</div>
         <div class="stat-bar-wrap"><div class="stat-bar" id="bar-ret90" style="background:var(--green);width:0%"></div></div>
       </div>
       <div class="stat-card">
         <div class="stat-card-label">Net Growth / Month</div>
-        <div class="stat-card-number num-transition" id="s-growth">0</div>
-        <div class="stat-card-sub" id="growth-sub">New patients minus lost</div>
+        <div class="stat-card-number" id="s-growth">0</div>
+        <div class="stat-card-sub" id="growth-sub">new minus lost</div>
         <div class="stat-bar-wrap"><div class="stat-bar" id="bar-growth" style="background:var(--green);width:50%"></div></div>
       </div>
     </div>
 
-    <!-- Bucket visual -->
-    <div class="bucket-section fade-up-3">
+    <div class="bucket-section">
       <div class="section-title">The leaky bucket — where your revenue flows</div>
       <div class="bucket-wrap">
         <div class="bucket-col">
           <span class="bucket-col-icon">💧</span>
           <div class="bucket-col-title green">The Hose</div>
-          <div class="bucket-col-stat num-transition" id="b-hose" style="color:var(--green)">0</div>
-          <div class="bucket-col-desc">New patients/mo flowing in from Google Ads + organic</div>
+          <div class="bucket-col-stat" id="b-hose" style="color:var(--green)">0/mo</div>
+          <div class="bucket-col-desc">New patients flowing in from Google Ads + organic</div>
         </div>
         <div class="bucket-col">
           <span class="bucket-col-icon">🪣</span>
           <div class="bucket-col-title amber">The Opening</div>
-          <div class="bucket-col-stat num-transition" id="b-open" style="color:var(--amber)">0%</div>
+          <div class="bucket-col-stat" id="b-open" style="color:var(--amber)">0%</div>
           <div class="bucket-col-desc">Conversion rate — enquiries that become patients</div>
         </div>
         <div class="bucket-col">
           <span class="bucket-col-icon">🕳️</span>
           <div class="bucket-col-title red">The Holes</div>
-          <div class="bucket-col-stat num-transition" id="b-holes" style="color:var(--red)">0</div>
+          <div class="bucket-col-stat" id="b-holes" style="color:var(--red)">0/mo</div>
           <div class="bucket-col-desc">Patients lost monthly through poor retention</div>
         </div>
       </div>
     </div>
 
-    <!-- Revenue breakdown -->
-    <div class="revenue-section fade-up-4">
+    <div class="revenue-section">
       <div class="section-title">Revenue analysis</div>
-
       <div class="rev-row">
         <div class="rev-label">Current monthly revenue<small>Active patients × avg monthly spend</small></div>
         <div class="rev-bar-wrap"><div class="rev-bar" id="rbar-current" style="background:var(--green);width:100%"></div></div>
@@ -780,24 +718,22 @@ input[type="range"]::-moz-range-thumb {
         <div class="rev-bar-wrap"><div class="rev-bar" id="rbar-recover" style="background:var(--blue);width:0%"></div></div>
         <div class="rev-val" style="color:var(--blue)" id="rval-recover">£0</div>
       </div>
-      <div class="rev-row" style="padding-top:14px">
-        <div class="rev-label" style="color:var(--text);font-weight:500">Net monthly profit potential<small style="color:var(--text3)">Revenue minus acquisition cost, churn recovered</small></div>
+      <div class="rev-row" style="padding-top:12px">
+        <div class="rev-label" style="color:var(--text);font-weight:600">Net monthly potential<small style="color:var(--text3);font-weight:400">With retention fixed and ads optimised</small></div>
         <div class="rev-bar-wrap"><div class="rev-bar" id="rbar-net" style="background:var(--green);width:0%"></div></div>
-        <div class="rev-val num-transition" id="rval-net" style="color:var(--green);font-size:16px">£0</div>
+        <div class="rev-val" id="rval-net" style="color:var(--green);font-size:16px">£0</div>
       </div>
     </div>
 
-    <!-- Risk items -->
-    <div class="risk-section fade-up-4">
+    <div class="risk-section">
       <div class="section-title">Diagnosis</div>
       <div class="risk-items" id="risk-items"></div>
     </div>
 
-    <!-- CTA -->
-    <div class="cta-section fade-up-4">
+    <div class="cta-section">
       <h2>Ready to fix the bucket?</h2>
-      <p>ClinicBucket builds the system that fills the holes — SMS automation, Google Ads optimisation, and a retention engine built on 12,000-patient data.</p>
-      <button class="cta-btn" onclick="window.location.href='mailto:james@clinicbucket.com?subject=Clinic Diagnostic — I want to fix my bucket'">Book a free strategy call →</button>
+      <p>ClinicBucket builds the complete system — SMS retention automation, Google Ads optimisation, and a sales process built on 12,000-patient data.</p>
+      <a href="https://calendly.com/jgallagher-clinicbucket/30min" target="_blank" class="cta-btn">Book a free strategy call →</a>
       <div class="cta-sub">No commitment. 30 minutes. We'll show you exactly what to fix first.</div>
     </div>
 
@@ -805,6 +741,12 @@ input[type="range"]::-moz-range-thumb {
 </div>
 
 <script>
+function fmt(n) {
+  if (n >= 1000) return '£' + Math.round(n).toLocaleString('en-GB');
+  return '£' + Math.round(n);
+}
+function fmtN(n) { return Math.round(n).toLocaleString('en-GB'); }
+
 function toggleDontKnow(btn) {
   const panel = document.getElementById('dontKnowPanel');
   const arrow = document.getElementById('dk-arrow');
@@ -815,13 +757,6 @@ function toggleDontKnow(btn) {
   btn.style.borderColor = isOpen ? '' : 'var(--amber)';
 }
 
-
-function fmt(n) {
-  if (n >= 1000) return '£' + Math.round(n).toLocaleString('en-GB');
-  return '£' + Math.round(n);
-}
-function fmtN(n) { return Math.round(n).toLocaleString('en-GB'); }
-
 function update() {
   const clinicName = document.getElementById('clinicName').value || 'your clinic';
   const patients   = +document.getElementById('s-patients').value;
@@ -831,34 +766,26 @@ function update() {
   const adSpend    = +document.getElementById('s-adspend').value;
   const conv       = +document.getElementById('s-conv').value / 100;
 
-  // Update slider displays
-  document.getElementById('v-patients').innerHTML = fmtN(patients) + ' <span>pts</span>';
-  document.getElementById('v-newpts').innerHTML = fmtN(newPts) + ' <span>pts/mo</span>';
-  document.getElementById('v-rebook').innerHTML = Math.round(rebook*100) + ' <span>%</span>';
-  document.getElementById('v-spend-n').textContent = spend;
-  document.getElementById('v-adspend-n').textContent = adSpend.toLocaleString('en-GB');
-  document.getElementById('v-conv').innerHTML = Math.round(conv*100) + ' <span>%</span>';
+  document.getElementById('v-patients').textContent = fmtN(patients);
+  document.getElementById('v-newpts').textContent   = fmtN(newPts);
+  document.getElementById('v-rebook').textContent   = Math.round(rebook * 100) + '%';
+  document.getElementById('v-spend').textContent    = '£' + spend;
+  document.getElementById('v-adspend').textContent  = '£' + adSpend.toLocaleString('en-GB');
+  document.getElementById('v-conv').textContent     = Math.round(conv * 100) + '%';
 
-  // ── Core calculations ──
-  const lostPerMonth   = Math.round(patients * (1 - rebook) * 0.08); // % churning monthly
-  const mrr            = patients * spend;
-  const cppRaw         = adSpend > 0 ? adSpend / (newPts * conv) : 0;
-  const cpp            = adSpend > 0 ? cppRaw : 0;
-  const ltv            = spend * 12 * rebook * 1.4; // avg 14 months if retained
-  const ret90          = Math.round(rebook * rebook * 100); // compound 2 rebooks = 90 days
-  const netGrowth      = newPts - lostPerMonth;
+  const lostPerMonth = Math.round(patients * (1 - rebook) * 0.08);
+  const mrr          = patients * spend;
+  const cpp          = adSpend > 0 ? adSpend / (newPts * conv) : 0;
+  const ltv          = spend * 12 * rebook * 1.4;
+  const ret90        = Math.round(rebook * rebook * 100);
+  const netGrowth    = newPts - lostPerMonth;
+  const currentLost  = patients * (1 - rebook) * 0.08;
+  const targetLost   = patients * (1 - 0.80) * 0.08;
+  const monthlyGap   = Math.max(0, (currentLost - targetLost) * spend);
+  const recoverable  = monthlyGap;
+  const netPotential = mrr + recoverable - adSpend;
 
-  // Revenue gap — what would MRR be at 80% rebooking vs current
-  const targetRebook   = 0.80;
-  const currentLost    = patients * (1 - rebook) * 0.08;
-  const targetLost     = patients * (1 - targetRebook) * 0.08;
-  const retentionGap   = Math.max(0, (currentLost - targetLost) * spend * 12);
-  const monthlyGap     = Math.max(0, (currentLost - targetLost) * spend);
-  const revenueAtRisk  = lostPerMonth * spend * 12; // annual value walking out
-  const recoverable    = monthlyGap;
-  const netPotential   = mrr + recoverable - adSpend;
-
-  // ── Gut punch ──
+  // Gut punch
   const gpNum = document.getElementById('gut-number');
   const gpSub = document.getElementById('gut-sub');
   if (rebook >= 0.80) {
@@ -871,20 +798,21 @@ function update() {
     gpSub.innerHTML = `<strong>${clinicName}</strong> is losing ${fmt(monthlyGap)} every month because patients aren't coming back. At 80% rebooking, that recovers to <strong>${fmt(recoverable + mrr)}/mo</strong> — without spending a penny more on ads.`;
   }
 
-  // ── Stats ──
+  // Stats
   document.getElementById('s-mrr').textContent = fmt(mrr);
+  document.getElementById('bar-mrr').style.width = '100%';
 
   const cppEl = document.getElementById('s-cpp');
   if (adSpend === 0) {
     cppEl.textContent = 'N/A';
     cppEl.className = 'stat-card-number stat-neutral';
-    document.getElementById('cpp-sub').textContent = 'No ad spend entered';
+    document.getElementById('cpp-sub').textContent = 'no ad spend entered';
     document.getElementById('bar-cpp').style.width = '0%';
   } else {
     cppEl.textContent = fmt(cpp);
     const cppGood = cpp < 80;
     cppEl.className = 'stat-card-number ' + (cppGood ? 'stat-good' : cpp < 150 ? 'stat-warn' : 'stat-bad');
-    document.getElementById('cpp-sub').textContent = cppGood ? 'Efficient acquisition' : cpp < 150 ? 'Could be improved' : 'High — review targeting';
+    document.getElementById('cpp-sub').textContent = cppGood ? 'efficient' : cpp < 150 ? 'could be lower' : 'too high';
     document.getElementById('bar-cpp').style.width = Math.min(100, (200 / cpp) * 100) + '%';
     document.getElementById('bar-cpp').style.background = cppGood ? 'var(--green)' : cpp < 150 ? 'var(--amber)' : 'var(--red)';
   }
@@ -892,33 +820,30 @@ function update() {
   const lostEl = document.getElementById('s-lost');
   lostEl.textContent = fmtN(lostPerMonth);
   lostEl.className = 'stat-card-number ' + (lostPerMonth < newPts * 0.5 ? 'stat-warn' : 'stat-bad');
-  document.getElementById('lost-sub').textContent = fmt(lostPerMonth * spend) + ' in monthly revenue walking out';
+  document.getElementById('lost-sub').textContent = fmt(lostPerMonth * spend) + '/mo walking out';
   document.getElementById('bar-lost').style.width = Math.min(100, (lostPerMonth / newPts) * 100) + '%';
 
   document.getElementById('s-ltv').textContent = fmt(ltv);
-  document.getElementById('ltv-sub').textContent = 'Based on current retention pattern';
   document.getElementById('bar-ltv').style.width = Math.min(100, (ltv / 3000) * 100) + '%';
 
   const ret90El = document.getElementById('s-ret90');
   ret90El.textContent = ret90 + '%';
   ret90El.className = 'stat-card-number ' + (ret90 >= 70 ? 'stat-good' : ret90 >= 50 ? 'stat-warn' : 'stat-bad');
-  document.getElementById('ret90-sub').textContent = ret90 >= 70 ? 'Strong retention' : ret90 >= 50 ? 'Room to improve' : 'Significant dropout';
+  document.getElementById('ret90-sub').textContent = ret90 >= 70 ? 'strong retention' : ret90 >= 50 ? 'room to improve' : 'significant dropout';
   document.getElementById('bar-ret90').style.width = ret90 + '%';
   document.getElementById('bar-ret90').style.background = ret90 >= 70 ? 'var(--green)' : ret90 >= 50 ? 'var(--amber)' : 'var(--red)';
 
   const growthEl = document.getElementById('s-growth');
   growthEl.textContent = (netGrowth >= 0 ? '+' : '') + fmtN(netGrowth);
   growthEl.className = 'stat-card-number ' + (netGrowth > 0 ? 'stat-good' : netGrowth === 0 ? 'stat-warn' : 'stat-bad');
-  document.getElementById('growth-sub').textContent = netGrowth > 0 ? 'Growing — keep the hose on' : netGrowth === 0 ? 'Flat — fix the holes urgently' : 'Shrinking — bucket is losing faster than gaining';
+  document.getElementById('growth-sub').textContent = netGrowth > 0 ? 'growing' : netGrowth === 0 ? 'flat' : 'shrinking';
   document.getElementById('bar-growth').style.width = Math.min(100, Math.max(0, 50 + (netGrowth / newPts) * 50)) + '%';
   document.getElementById('bar-growth').style.background = netGrowth > 0 ? 'var(--green)' : 'var(--red)';
 
-  // ── Bucket visual ──
-  document.getElementById('b-hose').textContent = fmtN(newPts) + '/mo';
-  document.getElementById('b-open').textContent = Math.round(conv * 100) + '%';
+  document.getElementById('b-hose').textContent  = fmtN(newPts) + '/mo';
+  document.getElementById('b-open').textContent  = Math.round(conv * 100) + '%';
   document.getElementById('b-holes').textContent = fmtN(lostPerMonth) + '/mo';
 
-  // ── Revenue bars ──
   const maxRev = Math.max(mrr, 1);
   document.getElementById('rval-current').textContent = fmt(mrr);
   document.getElementById('rbar-current').style.width = '100%';
@@ -937,33 +862,29 @@ function update() {
   document.getElementById('rval-net').style.color = netPotential > mrr ? 'var(--green)' : 'var(--amber)';
   document.getElementById('rbar-net').style.width = Math.min(100, (netPotential / maxRev) * 100) + '%';
 
-  // ── Diagnosis / risk items ──
   const risks = [];
+  if (rebook < 0.60) risks.push({ level:'high', text:`<strong>Critical retention problem.</strong> Only ${Math.round(rebook*100)}% of patients rebook. Best practice is 80%+. This is your biggest revenue leak.`, impact: fmt(monthlyGap)+'/mo' });
+  else if (rebook < 0.75) risks.push({ level:'medium', text:`<strong>Rebooking rate below benchmark.</strong> ${Math.round(rebook*100)}% vs 80% target. Automated SMS sequences typically close this gap within 90 days.`, impact: fmt(monthlyGap)+'/mo' });
+  else risks.push({ level:'low', text:`<strong>Rebooking rate is healthy</strong> at ${Math.round(rebook*100)}%. Focus on maintaining this as patient volume scales.`, impact:'On track' });
 
-  if (rebook < 0.60) risks.push({ level: 'high', text: `<strong>Critical retention problem.</strong> Only ${Math.round(rebook*100)}% of patients rebook. Industry best practice is 80%+. This single metric is your biggest revenue leak.`, impact: fmt(monthlyGap) + '/mo' });
-  else if (rebook < 0.75) risks.push({ level: 'medium', text: `<strong>Rebooking rate below benchmark.</strong> ${Math.round(rebook*100)}% vs 80% target. Automated SMS sequences typically close this gap within 90 days.`, impact: fmt(monthlyGap) + '/mo' });
-  else risks.push({ level: 'low', text: `<strong>Rebooking rate is healthy</strong> at ${Math.round(rebook*100)}%. Focus on holding this as patient volume scales.`, impact: 'Maintained' });
+  if (adSpend > 0 && cpp > 120) risks.push({ level:'high', text:`<strong>High cost per patient</strong> at ${fmt(cpp)}. With better compliance and targeting this should be under £80.`, impact: fmt((cpp-80)*newPts)+'/mo wasted' });
+  else if (adSpend > 0 && cpp > 80) risks.push({ level:'medium', text:`<strong>Acquisition cost improvable</strong> — ${fmt(cpp)} per patient. Compliance tweaks can bring this under £80.`, impact: fmt((cpp-80)*newPts)+'/mo' });
+  else if (adSpend > 0) risks.push({ level:'low', text:`<strong>Efficient acquisition</strong> at ${fmt(cpp)} per patient. Google Ads is working — protect this setup.`, impact:'Optimised' });
 
-  if (adSpend > 0 && cpp > 120) risks.push({ level: 'high', text: `<strong>High cost per patient</strong> at ${fmt(cpp)}. With a better conversion process and landing page, this should be under £80. You're overpaying to fill a leaky bucket.`, impact: fmt((cpp - 80) * newPts) + '/mo wasted' });
-  else if (adSpend > 0 && cpp > 80) risks.push({ level: 'medium', text: `<strong>Acquisition cost improvable.</strong> ${fmt(cpp)} per patient. Compliance tweaks and conversion optimisation can bring this under £80.`, impact: fmt((cpp - 80) * newPts) + '/mo saving' });
-  else if (adSpend > 0) risks.push({ level: 'low', text: `<strong>Efficient acquisition</strong> at ${fmt(cpp)} per patient. Google Ads is working well — protect the setup.`, impact: 'Optimised' });
+  if (conv < 0.30) risks.push({ level:'high', text:`<strong>Conversion rate critically low</strong> at ${Math.round(conv*100)}%. A structured follow-up process typically doubles this within 60 days.`, impact: fmtN(Math.round(newPts*(0.50-conv)))+' pts/mo lost' });
+  else if (conv < 0.50) risks.push({ level:'medium', text:`<strong>Conversion rate below benchmark</strong> — ${Math.round(conv*100)}% vs 50–65% target. Speed of response is usually the quick win.`, impact: fmtN(Math.round(newPts*(0.50-conv)))+' pts/mo' });
+  else risks.push({ level:'low', text:`<strong>Strong conversion rate</strong> at ${Math.round(conv*100)}%. The opening of the bucket is working well.`, impact:'On target' });
 
-  if (conv < 0.30) risks.push({ level: 'high', text: `<strong>Conversion rate critically low</strong> at ${Math.round(conv*100)}%. Over half your leads are slipping away. A structured sales process and faster response time typically doubles this.`, impact: fmtN(Math.round(newPts * (0.50 - conv))) + ' patients/mo lost' });
-  else if (conv < 0.50) risks.push({ level: 'medium', text: `<strong>Conversion rate below benchmark.</strong> ${Math.round(conv*100)}% vs 50–65% target. Speed of response and follow-up scripts are the usual fix.`, impact: fmtN(Math.round(newPts * (0.50 - conv))) + ' patients/mo' });
-  else risks.push({ level: 'low', text: `<strong>Strong conversion rate</strong> at ${Math.round(conv*100)}%. The opening of the bucket is working well.`, impact: 'On target' });
-
-  if (netGrowth < 0) risks.push({ level: 'high', text: `<strong>Clinic is shrinking.</strong> Losing ${fmtN(Math.abs(netGrowth))} more patients than acquiring each month. Without intervention, patient base reduces by ${fmtN(Math.abs(netGrowth) * 12)} in 12 months.`, impact: fmt(Math.abs(netGrowth) * spend * 12) + '/yr' });
+  if (netGrowth < 0) risks.push({ level:'high', text:`<strong>Clinic is shrinking.</strong> Losing ${fmtN(Math.abs(netGrowth))} more patients than acquiring monthly. Patient base reduces by ${fmtN(Math.abs(netGrowth)*12)} in 12 months without action.`, impact: fmt(Math.abs(netGrowth)*spend*12)+'/yr' });
 
   document.getElementById('risk-items').innerHTML = risks.map(r => `
     <div class="risk-item ${r.level}">
       <div class="risk-dot ${r.level}"></div>
       <div class="risk-text">${r.text}</div>
       <div class="risk-impact">${r.impact}</div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
-// Init
 update();
 </script>
 </body>
