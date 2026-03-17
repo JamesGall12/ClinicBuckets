@@ -491,7 +491,7 @@ input[type="range"]::-moz-range-thumb {
 <div class="hero">
   <div class="hero-tag">Free clinic diagnostic</div>
   <h1>Find Your <span>Leaky Bucket</span></h1>
-  <p>Most clinics spend thousands filling the bucket with new patients — while losing just as many through the holes. Move the sliders to see exactly where your revenue is leaking.</p>
+  <p>Most clinics spend thousands filling the bucket with new patients, while losing just as many through the holes. Move the sliders to see exactly where your revenue is leaking.</p>
   <a href="#diagnostic" class="hero-cta">Run the diagnostic ↓</a>
 </div>
 
@@ -500,64 +500,116 @@ input[type="range"]::-moz-range-thumb {
 
   <!-- LEFT: Inputs -->
   <div class="inputs-panel">
-    <div class="panel-label">Your clinic numbers</div>
-
     <div class="clinic-name-wrap">
       <input type="text" id="clinicName" placeholder="Clinic name (optional)" maxlength="40">
     </div>
 
-    <div class="slider-group">
-      <div class="slider-header">
-        <span class="slider-label">Total active patients</span>
-        <span class="slider-val" id="v-patients">500</span>
-      </div>
-      <input type="range" id="s-patients" min="50" max="5000" step="50" value="500" oninput="update()">
-      <div class="slider-hint">Patients with at least one appointment in the last 12 months</div>
-    </div>
-
-    <div class="slider-group">
-      <div class="slider-header">
-        <span class="slider-label">New patients per month</span>
-        <span class="slider-val" id="v-newpts">40</span>
-      </div>
-      <input type="range" id="s-newpts" min="5" max="300" step="5" value="40" oninput="update()">
-      <div class="slider-hint">Average new patient bookings monthly</div>
-    </div>
-
-    <div class="slider-group">
-      <div class="slider-header">
-        <span class="slider-label">Rebooking rate</span>
-        <span class="slider-val" id="v-rebook">55%</span>
-      </div>
-      <input type="range" id="s-rebook" min="10" max="95" step="1" value="55" oninput="update()">
-      <div class="slider-hint">% of patients who rebook after their first appointment</div>
-    </div>
-
-    <div class="slider-group">
-      <div class="slider-header">
-        <span class="slider-label">Avg monthly spend per patient</span>
-        <span class="slider-val" id="v-spend">£180</span>
-      </div>
-      <input type="range" id="s-spend" min="50" max="600" step="10" value="180" oninput="update()">
-      <div class="slider-hint">Average monthly revenue per active patient</div>
-    </div>
-
+    <div class="panel-label" style="color:var(--blue)">① Acquisition</div>
     <div class="slider-group">
       <div class="slider-header">
         <span class="slider-label">Monthly Google Ads spend</span>
         <span class="slider-val" id="v-adspend">£3,000</span>
       </div>
-      <input type="range" id="s-adspend" min="0" max="20000" step="500" value="3000" oninput="update()">
-      <div class="slider-hint">Monthly paid acquisition budget</div>
+      <input type="range" id="s-adspend" min="0" max="75000" step="500" value="3000" oninput="update()">
+      <div class="slider-hint">Monthly paid spend driving inbound enquiries</div>
     </div>
 
+    <div class="panel-label" style="color:var(--blue);margin-top:1rem">② New enquiries converted</div>
     <div class="slider-group">
       <div class="slider-header">
-        <span class="slider-label">Lead to patient conversion</span>
+        <span class="slider-label">New enquiries per month</span>
+        <span class="slider-val" id="v-newenq">40</span>
+      </div>
+      <input type="range" id="s-newenq" min="5" max="1000" step="5" value="40" oninput="update()">
+      <div class="slider-hint">Total inbound enquiries from all channels monthly</div>
+    </div>
+    <div class="slider-group">
+      <div class="slider-header">
+        <span class="slider-label">Enquiry → booked consultation</span>
         <span class="slider-val" id="v-conv">35%</span>
       </div>
       <input type="range" id="s-conv" min="5" max="80" step="1" value="35" oninput="update()">
-      <div class="slider-hint">% of inbound enquiries that become paying patients</div>
+      <div class="slider-hint">% of enquiries that book and pay for a first consultation</div>
+    </div>
+    <div class="slider-group">
+      <div class="slider-header">
+        <span class="slider-label">First consultation fee</span>
+        <span class="slider-val" id="v-consfee">£50</span>
+      </div>
+      <input type="range" id="s-consfee" min="0" max="300" step="10" value="50" oninput="update()">
+      <div class="slider-hint">Fee charged at first consultation. Enter £0 if free consult model.</div>
+    </div>
+
+    <div class="panel-label" style="color:var(--blue);margin-top:1rem">③ Prescription → medication order</div>
+    <div class="slider-group">
+      <div class="slider-header">
+        <span class="slider-label">Consultation → prescription rate</span>
+        <span class="slider-val" id="v-rxrate">80%</span>
+      </div>
+      <input type="range" id="s-rxrate" min="20" max="99" step="1" value="80" oninput="update()">
+      <div class="slider-hint">% of consultations where doctor issues a prescription</div>
+    </div>
+    <div class="slider-group">
+      <div class="slider-header">
+        <span class="slider-label">Avg first medication order value</span>
+        <span class="slider-val" id="v-medval">£180</span>
+      </div>
+      <input type="range" id="s-medval" min="50" max="600" step="10" value="180" oninput="update()">
+      <div class="slider-hint">Value of first medication order from pharmacy</div>
+    </div>
+    <div class="slider-group">
+      <div class="slider-header">
+        <span class="slider-label">Prescription → medication order rate</span>
+        <span class="slider-val" id="v-medorder">75%</span>
+      </div>
+      <input type="range" id="s-medorder" min="10" max="99" step="1" value="75" oninput="update()">
+      <div class="slider-hint">% of prescribed patients who actually order medication</div>
+    </div>
+
+    <div class="panel-label" style="color:var(--blue);margin-top:1rem">④ Follow-up consultation (28 days)</div>
+    <div class="slider-group">
+      <div class="slider-header">
+        <span class="slider-label">Follow-up booking rate</span>
+        <span class="slider-val" id="v-followup">55%</span>
+      </div>
+      <input type="range" id="s-followup" min="10" max="95" step="1" value="55" oninput="update()">
+      <div class="slider-hint">% of active patients who book their follow-up at 28 days</div>
+    </div>
+    <div class="slider-group">
+      <div class="slider-header">
+        <span class="slider-label">Follow-up consultation fee</span>
+        <span class="slider-val" id="v-followfee">£30</span>
+      </div>
+      <input type="range" id="s-followfee" min="0" max="200" step="10" value="30" oninput="update()">
+      <div class="slider-hint">Fee charged at follow-up consultation. Enter £0 if included in package.</div>
+    </div>
+
+    <div class="panel-label" style="color:var(--blue);margin-top:1rem">⑤ Medication reorder</div>
+    <div class="slider-group">
+      <div class="slider-header">
+        <span class="slider-label">Medication reorder rate</span>
+        <span class="slider-val" id="v-reorder">65%</span>
+      </div>
+      <input type="range" id="s-reorder" min="10" max="95" step="1" value="65" oninput="update()">
+      <div class="slider-hint">% of follow-up patients who reorder medication</div>
+    </div>
+    <div class="slider-group">
+      <div class="slider-header">
+        <span class="slider-label">Avg repeat medication order value</span>
+        <span class="slider-val" id="v-reordval">£180</span>
+      </div>
+      <input type="range" id="s-reordval" min="50" max="600" step="10" value="180" oninput="update()">
+      <div class="slider-hint">Value of repeat medication order, often the same as the first.</div>
+    </div>
+
+    <div class="panel-label" style="color:var(--blue);margin-top:1rem">⑥ Patient database</div>
+    <div class="slider-group">
+      <div class="slider-header">
+        <span class="slider-label">Total patients registered</span>
+        <span class="slider-val" id="v-patients">500</span>
+      </div>
+      <input type="range" id="s-patients" min="50" max="50000" step="100" value="500" oninput="update()">
+      <div class="slider-hint">All patients ever registered, including active and lapsed.</div>
     </div>
 
     <button class="dont-know-btn" onclick="toggleDontKnow(this)">
@@ -566,61 +618,64 @@ input[type="range"]::-moz-range-thumb {
     </button>
 
     <div class="dont-know-panel" id="dontKnowPanel">
-      <div class="dont-know-title">What we find in most clinics</div>
+      <div class="dont-know-title">Sound familiar?</div>
       <div class="dont-know-intro">
-        <strong>Not knowing these numbers is the problem.</strong> Most clinic owners are running on gut feel — and it's costing them more than they realise. Here's what a typical audit reveals:
+        If you cannot answer these questions, you are not running a leaky bucket. <strong>You are running blind.</strong> Here is what I find in almost every clinic I audit:
       </div>
       <div class="audit-findings">
         <div class="audit-finding">
-          <span class="audit-finding-icon">🕳️</span>
+          <span class="audit-finding-icon">🚪</span>
           <div class="audit-finding-body">
-            <strong>Rebooking rate sitting at 45–55%</strong>
-            <span class="audit-finding-stat">Nearly half of new patients never return after their first visit</span>
+            <strong>The phone rings, then goes quiet</strong>
+            <span class="audit-finding-stat">Most enquiries reply once and disappear. No follow-up system, no second call, no SMS. The lead is just gone.</span>
+          </div>
+        </div>
+        <div class="audit-finding">
+          <span class="audit-finding-icon">📋</span>
+          <div class="audit-finding-body">
+            <strong>Patients leave the consultation and never order</strong>
+            <span class="audit-finding-stat">The doctor prescribed. The patient said yes. Then nothing. No nudge, no reminder. The prescription just sits there.</span>
+          </div>
+        </div>
+        <div class="audit-finding">
+          <span class="audit-finding-icon">📅</span>
+          <div class="audit-finding-body">
+            <strong>28 days passes and nobody notices</strong>
+            <span class="audit-finding-stat">The follow-up window closes. The patient moves on. The clinic has no idea it happened until the revenue stops coming in.</span>
           </div>
         </div>
         <div class="audit-finding">
           <span class="audit-finding-icon">💸</span>
           <div class="audit-finding-body">
-            <strong>Google Ads costing £120–180 per patient</strong>
-            <span class="audit-finding-stat">2x what it should — due to compliance gaps and poor targeting</span>
+            <strong>Thousands spent on Google Ads, for patients who disappear</strong>
+            <span class="audit-finding-stat">You are paying £120-180 to acquire a patient and then losing them after the first order. The maths only works if they stay.</span>
           </div>
         </div>
         <div class="audit-finding">
-          <span class="audit-finding-icon">🚪</span>
+          <span class="audit-finding-icon">📊</span>
           <div class="audit-finding-body">
-            <strong>Conversion rate under 30%</strong>
-            <span class="audit-finding-stat">7 in 10 enquiries never become patients — most lost in the first 24 hours</span>
-          </div>
-        </div>
-        <div class="audit-finding">
-          <span class="audit-finding-icon">📉</span>
-          <div class="audit-finding-body">
-            <strong>No data on patient dropout point</strong>
-            <span class="audit-finding-stat">Clinics don't know when patients leave — so they can't stop it</span>
-          </div>
-        </div>
-        <div class="audit-finding">
-          <span class="audit-finding-icon">📱</span>
-          <div class="audit-finding-body">
-            <strong>Zero automated follow-up</strong>
-            <span class="audit-finding-stat">Patients go quiet and nothing happens — no SMS, no check-in</span>
+            <strong>Nobody knows the actual numbers</strong>
+            <span class="audit-finding-stat">No rebooking rate. No dropout point. No cost per patient. Just a rough sense that things could be better. That gap is where the money goes.</span>
           </div>
         </div>
       </div>
-      <div class="dont-know-intro">
-        If this sounds familiar, <strong>the first call is a free audit.</strong> We find your numbers, show you where the leaks are, and tell you what to fix first.
+      <div class="dont-know-intro" style="margin-top:0.5rem">
+        I have seen this in every clinic I have worked with. <strong>The good news: every single one of these is fixable with the right system.</strong>
       </div>
-      <a href="https://calendly.com/jgallagher-clinicbucket/30min" target="_blank" class="dont-know-cta">Book a free bucket inspection →</a>
-      <div class="dont-know-sub">30 minutes. No commitment. We'll bring the numbers.</div>
+      <button class="dont-know-cta" onclick="prefillTypical()" style="margin-bottom:8px;background:var(--amber);border:none;cursor:pointer">Show me what a typical clinic looks like</button>
+      <div class="dont-know-sub" style="margin-bottom:10px">Pre-fills the sliders with typical bad clinic numbers so you can see the gap</div>
+      <a href="https://calendly.com/jgallagher-clinicbucket/30min" target="_blank" class="dont-know-cta" style="background:var(--blue)">Book a free audit. We will bring the real numbers.</a>
+      <div class="dont-know-sub">30 minutes. No commitment. No spreadsheet required.</div>
     </div>
 
     <div class="divider"></div>
     <div class="panel-label" style="margin-bottom:0.4rem">What good looks like</div>
     <div class="benchmarks">
-      Rebooking rate <strong>75–85%</strong><br>
-      Conversion rate <strong>50–65%</strong><br>
-      Cost per patient <strong>&lt;£80</strong><br>
-      90-day retention <strong>&gt;70%</strong>
+      Enquiry to consultation <strong>50-65%</strong><br>
+      Prescription to medication order <strong>85-95%</strong><br>
+      Follow-up booking rate <strong>75-85%</strong><br>
+      Medication reorder rate <strong>80-90%</strong><br>
+      Cost per new patient <strong>under £80</strong>
     </div>
   </div>
 
@@ -628,98 +683,109 @@ input[type="range"]::-moz-range-thumb {
   <div class="dashboard">
 
     <div class="gut-punch">
-      <div class="gut-punch-label">Monthly revenue leaking from your bucket</div>
+      <div class="gut-punch-label">Monthly revenue leaking across all four touchpoints</div>
       <div class="gut-punch-number" id="gut-number">£0</div>
-      <div class="gut-punch-sub" id="gut-sub">Adjust the sliders to calculate your retention gap.</div>
+      <div class="gut-punch-sub" id="gut-sub">Adjust the sliders to see your full revenue gap.</div>
     </div>
 
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-card-label">Monthly Revenue</div>
         <div class="stat-card-number stat-neutral" id="s-mrr">£0</div>
-        <div class="stat-card-sub">current patient base</div>
-        <div class="stat-bar-wrap"><div class="stat-bar" id="bar-mrr" style="background:var(--green);width:0%"></div></div>
+        <div class="stat-card-sub" id="mrr-sub">across all four touchpoints</div>
+        <div class="stat-bar-wrap"><div class="stat-bar" id="bar-mrr" style="background:var(--green);width:100%"></div></div>
       </div>
       <div class="stat-card">
-        <div class="stat-card-label">Cost Per Patient</div>
+        <div class="stat-card-label">Cost Per New Patient</div>
         <div class="stat-card-number" id="s-cpp">N/A</div>
         <div class="stat-card-sub" id="cpp-sub">from paid ads</div>
         <div class="stat-bar-wrap"><div class="stat-bar" id="bar-cpp" style="background:var(--green);width:0%"></div></div>
       </div>
       <div class="stat-card">
-        <div class="stat-card-label">Patients Lost / Month</div>
+        <div class="stat-card-label">New patients / month</div>
+        <div class="stat-card-number stat-neutral" id="s-newpts">0</div>
+        <div class="stat-card-sub" id="newpts-sub">booked and prescribed</div>
+        <div class="stat-bar-wrap"><div class="stat-bar" id="bar-newpts" style="background:var(--green);width:0%"></div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-label">Follow-ups not booked</div>
         <div class="stat-card-number stat-bad" id="s-lost">0</div>
-        <div class="stat-card-sub" id="lost-sub">dropping off</div>
+        <div class="stat-card-sub" id="lost-sub">patients due at 28 days</div>
         <div class="stat-bar-wrap"><div class="stat-bar" id="bar-lost" style="background:var(--red);width:0%"></div></div>
       </div>
       <div class="stat-card">
-        <div class="stat-card-label">Patient LTV (12mo)</div>
+        <div class="stat-card-label">Patient LTV</div>
         <div class="stat-card-number stat-neutral" id="s-ltv">£0</div>
-        <div class="stat-card-sub">average lifetime value</div>
+        <div class="stat-card-sub">12-month value per patient</div>
         <div class="stat-bar-wrap"><div class="stat-bar" id="bar-ltv" style="background:var(--blue);width:0%"></div></div>
       </div>
       <div class="stat-card">
-        <div class="stat-card-label">90-day Retention</div>
-        <div class="stat-card-number" id="s-ret90">0%</div>
-        <div class="stat-card-sub" id="ret90-sub">patients at 3 months</div>
-        <div class="stat-bar-wrap"><div class="stat-bar" id="bar-ret90" style="background:var(--green);width:0%"></div></div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-card-label">Net Growth / Month</div>
-        <div class="stat-card-number" id="s-growth">0</div>
-        <div class="stat-card-sub" id="growth-sub">new minus lost</div>
-        <div class="stat-bar-wrap"><div class="stat-bar" id="bar-growth" style="background:var(--green);width:50%"></div></div>
+        <div class="stat-card-label">Lapsed patients</div>
+        <div class="stat-card-number stat-warn" id="s-lapsed">0</div>
+        <div class="stat-card-sub" id="lapsed-sub">reactivation opportunity</div>
+        <div class="stat-bar-wrap"><div class="stat-bar" id="bar-lapsed" style="background:var(--amber);width:0%"></div></div>
       </div>
     </div>
 
     <div class="bucket-section">
-      <div class="section-title">The leaky bucket — where your revenue flows</div>
-      <div class="bucket-wrap">
+      <div class="section-title">Revenue across the patient journey</div>
+      <div class="bucket-wrap" style="grid-template-columns:repeat(4,1fr)">
         <div class="bucket-col">
-          <span class="bucket-col-icon">💧</span>
-          <div class="bucket-col-title green">The Hose</div>
-          <div class="bucket-col-stat" id="b-hose" style="color:var(--green)">0/mo</div>
-          <div class="bucket-col-desc">New patients flowing in from Google Ads + organic</div>
+          <span class="bucket-col-icon">📋</span>
+          <div class="bucket-col-title green">Consultation</div>
+          <div class="bucket-col-stat" id="b-cons" style="color:var(--green)">£0</div>
+          <div class="bucket-col-desc">First consult revenue per month</div>
         </div>
         <div class="bucket-col">
-          <span class="bucket-col-icon">🪣</span>
-          <div class="bucket-col-title amber">The Opening</div>
-          <div class="bucket-col-stat" id="b-open" style="color:var(--amber)">0%</div>
-          <div class="bucket-col-desc">Conversion rate — enquiries that become patients</div>
+          <span class="bucket-col-icon">💊</span>
+          <div class="bucket-col-title amber">Medication</div>
+          <div class="bucket-col-stat" id="b-med" style="color:var(--amber)">£0</div>
+          <div class="bucket-col-desc">First medication orders per month</div>
         </div>
         <div class="bucket-col">
-          <span class="bucket-col-icon">🕳️</span>
-          <div class="bucket-col-title red">The Holes</div>
-          <div class="bucket-col-stat" id="b-holes" style="color:var(--red)">0/mo</div>
-          <div class="bucket-col-desc">Patients lost monthly through poor retention</div>
+          <span class="bucket-col-icon">🔄</span>
+          <div class="bucket-col-title" style="color:#7c3aed">Follow-up</div>
+          <div class="bucket-col-stat" id="b-follow" style="color:#7c3aed">£0</div>
+          <div class="bucket-col-desc">Follow-up consult revenue per month</div>
+        </div>
+        <div class="bucket-col">
+          <span class="bucket-col-icon">📦</span>
+          <div class="bucket-col-title red">Reorder</div>
+          <div class="bucket-col-stat" id="b-reord" style="color:var(--green)">£0</div>
+          <div class="bucket-col-desc">Repeat medication orders per month</div>
         </div>
       </div>
     </div>
 
     <div class="revenue-section">
-      <div class="section-title">Revenue analysis</div>
+      <div class="section-title">Revenue leaking at each touchpoint</div>
       <div class="rev-row">
-        <div class="rev-label">Current monthly revenue<small>Active patients × avg monthly spend</small></div>
+        <div class="rev-label">Total monthly revenue<small>All four touchpoints combined</small></div>
         <div class="rev-bar-wrap"><div class="rev-bar" id="rbar-current" style="background:var(--green);width:100%"></div></div>
         <div class="rev-val" style="color:var(--green)" id="rval-current">£0</div>
       </div>
       <div class="rev-row">
-        <div class="rev-label">Revenue lost to churn<small>Patients dropping off × their monthly value</small></div>
-        <div class="rev-bar-wrap"><div class="rev-bar" id="rbar-churn" style="background:var(--red);width:0%"></div></div>
-        <div class="rev-val" style="color:var(--red)" id="rval-churn">£0</div>
+        <div class="rev-label">Lost at medication order<small>Prescribed but never ordered. No follow-up SMS sent.</small></div>
+        <div class="rev-bar-wrap"><div class="rev-bar" id="rbar-medlost" style="background:var(--red);width:0%"></div></div>
+        <div class="rev-val" style="color:var(--red)" id="rval-medlost">£0</div>
       </div>
       <div class="rev-row">
-        <div class="rev-label">Acquisition cost<small>Monthly Google Ads spend</small></div>
-        <div class="rev-bar-wrap"><div class="rev-bar" id="rbar-ads" style="background:var(--amber);width:0%"></div></div>
-        <div class="rev-val" style="color:var(--amber)" id="rval-ads">£0</div>
+        <div class="rev-label">Lost at follow-up booking<small>Active patients who never book 28-day follow-up</small></div>
+        <div class="rev-bar-wrap"><div class="rev-bar" id="rbar-followlost" style="background:var(--red);width:0%"></div></div>
+        <div class="rev-val" style="color:var(--red)" id="rval-followlost">£0</div>
       </div>
       <div class="rev-row">
-        <div class="rev-label">Revenue recoverable<small>If rebooking rate reached 80%</small></div>
-        <div class="rev-bar-wrap"><div class="rev-bar" id="rbar-recover" style="background:var(--blue);width:0%"></div></div>
-        <div class="rev-val" style="color:var(--blue)" id="rval-recover">£0</div>
+        <div class="rev-label">Lost at reorder<small>Had follow-up but did not reorder medication</small></div>
+        <div class="rev-bar-wrap"><div class="rev-bar" id="rbar-reordlost" style="background:var(--red);width:0%"></div></div>
+        <div class="rev-val" style="color:var(--red)" id="rval-reordlost">£0</div>
+      </div>
+      <div class="rev-row">
+        <div class="rev-label">Lapsed patient reactivation<small>20% via SMS campaign, shown as monthly equivalent over 6 months</small></div>
+        <div class="rev-bar-wrap"><div class="rev-bar" id="rbar-reactive" style="background:#7c3aed;width:0%"></div></div>
+        <div class="rev-val" style="color:#7c3aed" id="rval-reactive">£0</div>
       </div>
       <div class="rev-row" style="padding-top:12px">
-        <div class="rev-label" style="color:var(--text);font-weight:600">Net monthly potential<small style="color:var(--text3);font-weight:400">With retention fixed and ads optimised</small></div>
+        <div class="rev-label" style="color:var(--text);font-weight:600">Revenue with leaks fixed<small style="color:var(--text3);font-weight:400">All touchpoints optimised + lapsed reactivated</small></div>
         <div class="rev-bar-wrap"><div class="rev-bar" id="rbar-net" style="background:var(--green);width:0%"></div></div>
         <div class="rev-val" id="rval-net" style="color:var(--green);font-size:16px">£0</div>
       </div>
@@ -732,9 +798,9 @@ input[type="range"]::-moz-range-thumb {
 
     <div class="cta-section">
       <h2>Ready to fix the bucket?</h2>
-      <p>ClinicBucket builds the complete system — SMS retention automation, Google Ads optimisation, and a sales process built on 12,000-patient data.</p>
-      <a href="https://calendly.com/jgallagher-clinicbucket/30min" target="_blank" class="cta-btn">Book a free strategy call →</a>
-      <div class="cta-sub">No commitment. 30 minutes. We'll show you exactly what to fix first.</div>
+      <p>ClinicBucket builds the complete system: SMS automation at every touchpoint, Google Ads optimisation, and a sales process built on 12,000-patient data.</p>
+      <a href="https://calendly.com/jgallagher-clinicbucket/30min" target="_blank" class="cta-btn">Book a free strategy call</a>
+      <div class="cta-sub">No commitment. 30 minutes. We will show you exactly what to fix first.</div>
     </div>
 
   </div>
@@ -746,6 +812,25 @@ function fmt(n) {
   return '£' + Math.round(n);
 }
 function fmtN(n) { return Math.round(n).toLocaleString('en-GB'); }
+
+function prefillTypical() {
+  // Typical bad clinic numbers based on real audit findings
+  document.getElementById('s-adspend').value  = 5000;
+  document.getElementById('s-newenq').value   = 60;
+  document.getElementById('s-conv').value     = 28;
+  document.getElementById('s-consfee').value  = 50;
+  document.getElementById('s-rxrate').value   = 78;
+  document.getElementById('s-medval').value   = 160;
+  document.getElementById('s-medorder').value = 62;
+  document.getElementById('s-followup').value = 44;
+  document.getElementById('s-followfee').value= 30;
+  document.getElementById('s-reorder').value  = 58;
+  document.getElementById('s-reordval').value = 160;
+  document.getElementById('s-patients').value = 800;
+  update();
+  // Scroll to dashboard
+  document.getElementById('diagnostic').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
 
 function toggleDontKnow(btn) {
   const panel = document.getElementById('dontKnowPanel');
@@ -760,47 +845,90 @@ function toggleDontKnow(btn) {
 function update() {
   const clinicName = document.getElementById('clinicName').value || 'your clinic';
   const patients   = +document.getElementById('s-patients').value;
-  const newPts     = +document.getElementById('s-newpts').value;
-  const rebook     = +document.getElementById('s-rebook').value / 100;
-  const spend      = +document.getElementById('s-spend').value;
-  const adSpend    = +document.getElementById('s-adspend').value;
+  const newEnq     = +document.getElementById('s-newenq').value;
   const conv       = +document.getElementById('s-conv').value / 100;
+  const consFee    = +document.getElementById('s-consfee').value;
+  const rxRate     = +document.getElementById('s-rxrate').value / 100;
+  const medVal     = +document.getElementById('s-medval').value;
+  const medOrder   = +document.getElementById('s-medorder').value / 100;
+  const followup   = +document.getElementById('s-followup').value / 100;
+  const followFee  = +document.getElementById('s-followfee').value;
+  const reorder    = +document.getElementById('s-reorder').value / 100;
+  const reordVal   = +document.getElementById('s-reordval').value;
+  const adSpend    = +document.getElementById('s-adspend').value;
 
-  document.getElementById('v-patients').textContent = fmtN(patients);
-  document.getElementById('v-newpts').textContent   = fmtN(newPts);
-  document.getElementById('v-rebook').textContent   = Math.round(rebook * 100) + '%';
-  document.getElementById('v-spend').textContent    = '£' + spend;
-  document.getElementById('v-adspend').textContent  = '£' + adSpend.toLocaleString('en-GB');
-  document.getElementById('v-conv').textContent     = Math.round(conv * 100) + '%';
+  // Update display values
+  document.getElementById('v-patients').textContent  = fmtN(patients);
+  document.getElementById('v-newenq').textContent    = fmtN(newEnq);
+  document.getElementById('v-conv').textContent      = Math.round(conv * 100) + '%';
+  document.getElementById('v-consfee').textContent   = consFee > 0 ? '£' + consFee : 'Free';
+  document.getElementById('v-rxrate').textContent    = Math.round(rxRate * 100) + '%';
+  document.getElementById('v-medval').textContent    = '£' + medVal;
+  document.getElementById('v-medorder').textContent  = Math.round(medOrder * 100) + '%';
+  document.getElementById('v-followup').textContent  = Math.round(followup * 100) + '%';
+  document.getElementById('v-followfee').textContent = followFee > 0 ? '£' + followFee : 'Free';
+  document.getElementById('v-reorder').textContent   = Math.round(reorder * 100) + '%';
+  document.getElementById('v-reordval').textContent  = '£' + reordVal;
+  document.getElementById('v-adspend').textContent   = '£' + adSpend.toLocaleString('en-GB');
 
-  const lostPerMonth = Math.round(patients * (1 - rebook) * 0.08);
-  const mrr          = patients * spend;
-  const cpp          = adSpend > 0 ? adSpend / (newPts * conv) : 0;
-  const ltv          = spend * 12 * rebook * 1.4;
-  const ret90        = Math.round(rebook * rebook * 100);
-  const netGrowth    = newPts - lostPerMonth;
-  const currentLost  = patients * (1 - rebook) * 0.08;
-  const targetLost   = patients * (1 - 0.80) * 0.08;
-  const monthlyGap   = Math.max(0, (currentLost - targetLost) * spend);
-  const recoverable  = monthlyGap;
-  const netPotential = mrr + recoverable - adSpend;
+  // ── Patient journey calculations ──
+  const bookedConsults    = Math.round(newEnq * conv);
+  const prescribed        = Math.round(bookedConsults * rxRate);
+  const medOrdered        = Math.round(prescribed * medOrder);
+  const followupBooked    = Math.round(medOrdered * followup);
+  const reordered         = Math.round(followupBooked * reorder);
 
-  // Gut punch
+  // Revenue at each touchpoint
+  const r1ConsRevenue     = bookedConsults * consFee;
+  const r2MedRevenue      = medOrdered * medVal;
+  const r3FollowRevenue   = followupBooked * followFee;
+  const r4ReordRevenue    = reordered * reordVal;
+  const mrr               = r1ConsRevenue + r2MedRevenue + r3FollowRevenue + r4ReordRevenue;
+
+  // ── Leakage at each touchpoint ──
+  // Leak 1: prescribed but never ordered medication
+  const medLost           = (prescribed - medOrdered) * medVal;
+
+  // Leak 2: ordered medication but never booked follow-up
+  // Loss = follow-up fee they never paid + medication they never reordered
+  const missedFollowCount = medOrdered - followupBooked;
+  const followLost        = missedFollowCount * (followFee + reordVal);
+
+  // Leak 3: booked follow-up but did not reorder medication
+  const reordLost         = (followupBooked - reordered) * reordVal;
+
+  const totalLeak         = medLost + followLost + reordLost;
+
+  // Database — 65% active, 35% lapsed assumption
+  const activePts         = Math.round(patients * 0.65);
+  const lapsedPts         = patients - activePts;
+  // Reactivation: 20% of lapsed come back via SMS campaign over ~6 months
+  // Shown as monthly equivalent (total value / 6 months)
+  const reactivationTotal = Math.round(lapsedPts * 0.20) * reordVal;
+  const reactivation      = Math.round(reactivationTotal / 6);
+
+  // Cost per patient = ad spend divided by patients who actually received a prescription
+  const cpp               = adSpend > 0 ? adSpend / Math.max(prescribed, 1) : 0;
+
+  // LTV: revenue generated by one patient over one full cycle (consult → med → follow-up → reorder)
+  // multiplied by average number of cycles before dropout, estimated at ~8 months
+  const revenuePerCycle   = consFee + (medVal * medOrder) + (followFee * followup) + (reordVal * reorder * followup);
+  const avgCyclesRetained = 8;
+  const ltv               = revenuePerCycle * avgCyclesRetained;
+
+  // Net potential = current revenue + all recoverable leakage + reactivation
+  const netPotential      = mrr + totalLeak + reactivation;
+
+  // ── Gut punch ──
   const gpNum = document.getElementById('gut-number');
   const gpSub = document.getElementById('gut-sub');
-  if (rebook >= 0.80) {
-    gpNum.textContent = '£0';
-    gpNum.style.color = 'var(--green)';
-    gpSub.innerHTML = `<strong>${clinicName}</strong> is running at a healthy rebooking rate. Focus shifts to acquisition and conversion optimisation.`;
-  } else {
-    gpNum.textContent = fmt(monthlyGap) + '/mo';
-    gpNum.style.color = monthlyGap > 5000 ? 'var(--red)' : 'var(--amber)';
-    gpSub.innerHTML = `<strong>${clinicName}</strong> is losing ${fmt(monthlyGap)} every month because patients aren't coming back. At 80% rebooking, that recovers to <strong>${fmt(recoverable + mrr)}/mo</strong> — without spending a penny more on ads.`;
-  }
+  gpNum.textContent = fmt(totalLeak + reactivation) + '/mo';
+  gpNum.style.color = (totalLeak + reactivation) > 5000 ? 'var(--red)' : 'var(--amber)';
+  gpSub.innerHTML = '<strong>' + clinicName + '</strong> is leaking ' + fmt(medLost) + '/mo at medication orders, ' + fmt(followLost) + '/mo at follow-up, and ' + fmt(reordLost) + '/mo at reorders. Plus ' + fmt(reactivation) + '/mo recoverable from ' + fmtN(lapsedPts) + ' lapsed patients via SMS.';
 
-  // Stats
+  // ── Stats ──
   document.getElementById('s-mrr').textContent = fmt(mrr);
-  document.getElementById('bar-mrr').style.width = '100%';
+  document.getElementById('mrr-sub').textContent = fmt(r1ConsRevenue) + ' consults + ' + fmt(r2MedRevenue) + ' meds + ' + fmt(r3FollowRevenue + r4ReordRevenue) + ' repeat';
 
   const cppEl = document.getElementById('s-cpp');
   if (adSpend === 0) {
@@ -817,72 +945,79 @@ function update() {
     document.getElementById('bar-cpp').style.background = cppGood ? 'var(--green)' : cpp < 150 ? 'var(--amber)' : 'var(--red)';
   }
 
+  document.getElementById('s-newpts').textContent = fmtN(prescribed);
+  document.getElementById('newpts-sub').textContent = fmtN(bookedConsults) + ' booked, ' + fmtN(prescribed) + ' prescribed';
+  document.getElementById('bar-newpts').style.width = Math.min(100, (prescribed / Math.max(newEnq, 1)) * 100) + '%';
+
+  // missedFollowCount already calculated above
   const lostEl = document.getElementById('s-lost');
-  lostEl.textContent = fmtN(lostPerMonth);
-  lostEl.className = 'stat-card-number ' + (lostPerMonth < newPts * 0.5 ? 'stat-warn' : 'stat-bad');
-  document.getElementById('lost-sub').textContent = fmt(lostPerMonth * spend) + '/mo walking out';
-  document.getElementById('bar-lost').style.width = Math.min(100, (lostPerMonth / newPts) * 100) + '%';
+  lostEl.textContent = fmtN(missedFollowCount);
+  lostEl.className = 'stat-card-number ' + (missedFollowCount > prescribed * 0.3 ? 'stat-bad' : 'stat-warn');
+  document.getElementById('lost-sub').textContent = fmt(followLost) + '/mo in lost revenue';
+  document.getElementById('bar-lost').style.width = Math.min(100, (missedFollowCount / Math.max(medOrdered, 1)) * 100) + '%';
 
   document.getElementById('s-ltv').textContent = fmt(ltv);
-  document.getElementById('bar-ltv').style.width = Math.min(100, (ltv / 3000) * 100) + '%';
+  document.getElementById('bar-ltv').style.width = Math.min(100, (ltv / 5000) * 100) + '%';
 
-  const ret90El = document.getElementById('s-ret90');
-  ret90El.textContent = ret90 + '%';
-  ret90El.className = 'stat-card-number ' + (ret90 >= 70 ? 'stat-good' : ret90 >= 50 ? 'stat-warn' : 'stat-bad');
-  document.getElementById('ret90-sub').textContent = ret90 >= 70 ? 'strong retention' : ret90 >= 50 ? 'room to improve' : 'significant dropout';
-  document.getElementById('bar-ret90').style.width = ret90 + '%';
-  document.getElementById('bar-ret90').style.background = ret90 >= 70 ? 'var(--green)' : ret90 >= 50 ? 'var(--amber)' : 'var(--red)';
+  document.getElementById('s-lapsed').textContent = fmtN(lapsedPts);
+  document.getElementById('lapsed-sub').textContent = fmt(reactivationTotal) + ' total, ' + fmt(reactivation) + '/mo equiv';
+  document.getElementById('bar-lapsed').style.width = Math.min(100, (lapsedPts / Math.max(patients, 1)) * 100) + '%';
 
-  const growthEl = document.getElementById('s-growth');
-  growthEl.textContent = (netGrowth >= 0 ? '+' : '') + fmtN(netGrowth);
-  growthEl.className = 'stat-card-number ' + (netGrowth > 0 ? 'stat-good' : netGrowth === 0 ? 'stat-warn' : 'stat-bad');
-  document.getElementById('growth-sub').textContent = netGrowth > 0 ? 'growing' : netGrowth === 0 ? 'flat' : 'shrinking';
-  document.getElementById('bar-growth').style.width = Math.min(100, Math.max(0, 50 + (netGrowth / newPts) * 50)) + '%';
-  document.getElementById('bar-growth').style.background = netGrowth > 0 ? 'var(--green)' : 'var(--red)';
+  // ── Journey revenue boxes ──
+  document.getElementById('b-cons').textContent   = fmt(r1ConsRevenue);
+  document.getElementById('b-med').textContent    = fmt(r2MedRevenue);
+  document.getElementById('b-follow').textContent = fmt(r3FollowRevenue);
+  document.getElementById('b-reord').textContent  = fmt(r4ReordRevenue);
 
-  document.getElementById('b-hose').textContent  = fmtN(newPts) + '/mo';
-  document.getElementById('b-open').textContent  = Math.round(conv * 100) + '%';
-  document.getElementById('b-holes').textContent = fmtN(lostPerMonth) + '/mo';
-
-  const maxRev = Math.max(mrr, 1);
+  // ── Revenue breakdown ──
+  const maxRev = Math.max(netPotential, 1);
   document.getElementById('rval-current').textContent = fmt(mrr);
-  document.getElementById('rbar-current').style.width = '100%';
+  document.getElementById('rbar-current').style.width = Math.min(100, (mrr / maxRev) * 100) + '%';
 
-  const churnVal = lostPerMonth * spend;
-  document.getElementById('rval-churn').textContent = fmt(churnVal);
-  document.getElementById('rbar-churn').style.width = Math.min(100, (churnVal / maxRev) * 100) + '%';
+  document.getElementById('rval-medlost').textContent = fmt(medLost);
+  document.getElementById('rbar-medlost').style.width = Math.min(100, (medLost / maxRev) * 100) + '%';
 
-  document.getElementById('rval-ads').textContent = adSpend > 0 ? fmt(adSpend) : '£0';
-  document.getElementById('rbar-ads').style.width = Math.min(100, (adSpend / maxRev) * 100) + '%';
+  document.getElementById('rval-followlost').textContent = fmt(followLost);
+  document.getElementById('rbar-followlost').style.width = Math.min(100, (followLost / maxRev) * 100) + '%';
 
-  document.getElementById('rval-recover').textContent = fmt(recoverable);
-  document.getElementById('rbar-recover').style.width = Math.min(100, (recoverable / maxRev) * 100) + '%';
+  document.getElementById('rval-reordlost').textContent = fmt(reordLost);
+  document.getElementById('rbar-reordlost').style.width = Math.min(100, (reordLost / maxRev) * 100) + '%';
+
+  document.getElementById('rval-reactive').textContent = fmt(reactivation);
+  document.getElementById('rbar-reactive').style.width = Math.min(100, (reactivation / maxRev) * 100) + '%';
 
   document.getElementById('rval-net').textContent = fmt(netPotential);
-  document.getElementById('rval-net').style.color = netPotential > mrr ? 'var(--green)' : 'var(--amber)';
-  document.getElementById('rbar-net').style.width = Math.min(100, (netPotential / maxRev) * 100) + '%';
+  document.getElementById('rval-net').style.color = 'var(--green)';
+  document.getElementById('rbar-net').style.width = '100%';
 
+  // ── Diagnosis ──
   const risks = [];
-  if (rebook < 0.60) risks.push({ level:'high', text:`<strong>Critical retention problem.</strong> Only ${Math.round(rebook*100)}% of patients rebook. Best practice is 80%+. This is your biggest revenue leak.`, impact: fmt(monthlyGap)+'/mo' });
-  else if (rebook < 0.75) risks.push({ level:'medium', text:`<strong>Rebooking rate below benchmark.</strong> ${Math.round(rebook*100)}% vs 80% target. Automated SMS sequences typically close this gap within 90 days.`, impact: fmt(monthlyGap)+'/mo' });
-  else risks.push({ level:'low', text:`<strong>Rebooking rate is healthy</strong> at ${Math.round(rebook*100)}%. Focus on maintaining this as patient volume scales.`, impact:'On track' });
 
-  if (adSpend > 0 && cpp > 120) risks.push({ level:'high', text:`<strong>High cost per patient</strong> at ${fmt(cpp)}. With better compliance and targeting this should be under £80.`, impact: fmt((cpp-80)*newPts)+'/mo wasted' });
-  else if (adSpend > 0 && cpp > 80) risks.push({ level:'medium', text:`<strong>Acquisition cost improvable</strong> — ${fmt(cpp)} per patient. Compliance tweaks can bring this under £80.`, impact: fmt((cpp-80)*newPts)+'/mo' });
-  else if (adSpend > 0) risks.push({ level:'low', text:`<strong>Efficient acquisition</strong> at ${fmt(cpp)} per patient. Google Ads is working — protect this setup.`, impact:'Optimised' });
+  if (conv < 0.30) risks.push({ level:'high', text:'<strong>Enquiry conversion critically low</strong> at ' + Math.round(conv*100) + '%. 7 in 10 enquiries never book. A structured follow-up process typically doubles this within 60 days.', impact: fmtN(Math.round(newEnq*(0.50-conv))) + ' pts/mo lost' });
+  else if (conv < 0.50) risks.push({ level:'medium', text:'<strong>Enquiry conversion below benchmark</strong> at ' + Math.round(conv*100) + '%, against a 50-65% target. Speed of first response is usually the quick win.', impact: fmtN(Math.round(newEnq*(0.50-conv))) + ' pts/mo' });
+  else risks.push({ level:'low', text:'<strong>Enquiry conversion is strong</strong> at ' + Math.round(conv*100) + '%. The opening of the bucket is working well.', impact:'On target' });
 
-  if (conv < 0.30) risks.push({ level:'high', text:`<strong>Conversion rate critically low</strong> at ${Math.round(conv*100)}%. A structured follow-up process typically doubles this within 60 days.`, impact: fmtN(Math.round(newPts*(0.50-conv)))+' pts/mo lost' });
-  else if (conv < 0.50) risks.push({ level:'medium', text:`<strong>Conversion rate below benchmark</strong> — ${Math.round(conv*100)}% vs 50–65% target. Speed of response is usually the quick win.`, impact: fmtN(Math.round(newPts*(0.50-conv)))+' pts/mo' });
-  else risks.push({ level:'low', text:`<strong>Strong conversion rate</strong> at ${Math.round(conv*100)}%. The opening of the bucket is working well.`, impact:'On target' });
+  if (medOrder < 0.75) risks.push({ level:'high', text:'<strong>Medication order rate low</strong> at ' + Math.round(medOrder*100) + '%. ' + fmtN(prescribed - medOrdered) + ' prescribed patients per month never order. An SMS nudge within 24 hours of consultation fixes most of this.', impact: fmt(medLost) + '/mo' });
+  else if (medOrder < 0.90) risks.push({ level:'medium', text:'<strong>Medication order rate improvable</strong> at ' + Math.round(medOrder*100) + '%, against an 85-95% benchmark. Automated post-consultation SMS recovers most of the gap.', impact: fmt(medLost) + '/mo' });
+  else risks.push({ level:'low', text:'<strong>Medication order rate is strong</strong> at ' + Math.round(medOrder*100) + '%. Post-consultation conversion is working well.', impact:'On target' });
 
-  if (netGrowth < 0) risks.push({ level:'high', text:`<strong>Clinic is shrinking.</strong> Losing ${fmtN(Math.abs(netGrowth))} more patients than acquiring monthly. Patient base reduces by ${fmtN(Math.abs(netGrowth)*12)} in 12 months without action.`, impact: fmt(Math.abs(netGrowth)*spend*12)+'/yr' });
+  if (followup < 0.60) risks.push({ level:'high', text:'<strong>Follow-up booking rate critical</strong> at ' + Math.round(followup*100) + '%. ' + fmtN(missedFollowCount) + ' patients are missing their 28-day follow-up every month. This is your biggest single revenue leak and the exact problem SMS automation solves.', impact: fmt(followLost) + '/mo' });
+  else if (followup < 0.78) risks.push({ level:'medium', text:'<strong>Follow-up booking below benchmark</strong> at ' + Math.round(followup*100) + '%, against a 75-85% target. Automated 28-day reminders typically add 20+ percentage points.', impact: fmt(followLost) + '/mo' });
+  else risks.push({ level:'low', text:'<strong>Follow-up booking rate is healthy</strong> at ' + Math.round(followup*100) + '%. Patients are coming back at the right time.', impact:'On target' });
 
-  document.getElementById('risk-items').innerHTML = risks.map(r => `
-    <div class="risk-item ${r.level}">
-      <div class="risk-dot ${r.level}"></div>
-      <div class="risk-text">${r.text}</div>
-      <div class="risk-impact">${r.impact}</div>
-    </div>`).join('');
+  if (reorder < 0.70) risks.push({ level:'high', text:'<strong>Reorder rate low</strong> at ' + Math.round(reorder*100) + '%. Patients are attending follow-ups but not reordering medication. This usually points to friction at the pharmacy step or price sensitivity.', impact: fmt(reordLost) + '/mo' });
+  else if (reorder < 0.85) risks.push({ level:'medium', text:'<strong>Reorder rate improvable</strong> at ' + Math.round(reorder*100) + '%, against an 80-90% benchmark. A pharmacy reminder SMS at day 25 typically closes this.', impact: fmt(reordLost) + '/mo' });
+  else risks.push({ level:'low', text:'<strong>Reorder rate is strong</strong> at ' + Math.round(reorder*100) + '%.', impact:'On target' });
+
+  if (adSpend > 0 && cpp > 120) risks.push({ level:'high', text:'<strong>High cost per new patient</strong> at ' + fmt(cpp) + '. With better compliance and targeting this should be under £80.', impact: fmt((cpp-80)*prescribed) + '/mo wasted' });
+  else if (adSpend > 0 && cpp > 80) risks.push({ level:'medium', text:'<strong>Acquisition cost improvable</strong> at ' + fmt(cpp) + ' per patient. Compliance tweaks can bring this under £80.', impact: fmt((cpp-80)*prescribed) + '/mo' });
+  else if (adSpend > 0) risks.push({ level:'low', text:'<strong>Efficient acquisition</strong> at ' + fmt(cpp) + ' per patient. Google Ads is working. Protect this setup.', impact:'Optimised' });
+
+  if (lapsedPts > 100) risks.push({ level: lapsedPts > 500 ? 'high' : 'medium', text:'<strong>' + fmtN(lapsedPts) + ' lapsed patients</strong> sitting idle. A targeted SMS reactivation sequence typically brings back 15-25%, which is ' + fmtN(Math.round(lapsedPts*0.20)) + ' patients and ' + fmt(reactivation) + '/mo in recovered revenue without any extra ad spend.', impact: fmt(reactivation) + '/mo' });
+
+  document.getElementById('risk-items').innerHTML = risks.map(function(r) {
+    return '<div class="risk-item ' + r.level + '"><div class="risk-dot ' + r.level + '"></div><div class="risk-text">' + r.text + '</div><div class="risk-impact">' + r.impact + '</div></div>';
+  }).join('');
 }
 
 update();
