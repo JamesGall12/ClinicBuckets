@@ -1,296 +1,428 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>James Gallagher Healthcare & Cannabis Clinic Consulting</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Complete patient growth system for cannabis clinics. Google Ads optimization + proven retention automation. 27x ROI from integrated acquisition and retention strategy.">
-    <meta name="keywords" content="healthcare consulting, cannabis clinic consulting, clinic automation, patient retention, operational optimization, medicinal cannabis, clinic management, James Gallagher">
-    <meta name="author" content="James Gallagher">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://clinicbucket.com/">
-    <meta property="og:title" content="James Gallagher Healthcare & Cannabis Clinic Consulting">
-    <meta property="og:description" content="Scale your healthcare or cannabis clinic without hiring more staff. Proven 27x ROI through smart automation and operational excellence.">
-    <meta property="og:image" content="https://clinicbucket.com/og-image.jpg">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://clinicbucket.com/">
-    <meta property="twitter:title" content="James Gallagher Healthcare & Cannabis Clinic Consulting">
-    <meta property="twitter:description" content="Scale your healthcare or cannabis clinic without hiring more staff. Proven 27x ROI through smart automation and operational excellence.">
-    <meta property="twitter:image" content="https://clinicbucket.com/og-image.jpg">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://clinicbucket.com/">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="ClinicBucket logo.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="ClinicBucket logo.png">
-    <link rel="apple-touch-icon" href="ClinicBucket logo.png">    
-    <!-- Fonts and Styles -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ClinicBucket | Growth for UK medical cannabis clinics</title>
+<meta name="description" content="Google Ads, conversion and patient retention for UK medical cannabis clinics. More of the right patients in, more of them booked and fewer of them leaving your clinic.">
+<link rel="canonical" href="https://clinicbucket.com/">
+<meta property="og:title" content="ClinicBucket | Growth for cannabis clinics">
+<meta property="og:description" content="From first click to fifth script. Google Ads, conversion and retention for UK medical cannabis clinics.">
+<meta property="og:url" content="https://clinicbucket.com/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0A0C0F">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#0A0C0F;color:#EEF1F3;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:#C8F25A}a:hover{color:#E2FA9E}
+summary{cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+details[open] summary span{transform:rotate(45deg)}
+summary span{transition:transform .2s}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #C8F25A;outline-offset:3px}
+@media (max-width:720px){
+  header nav a:not(:last-child){display:none}
+  section h2{font-size:32px !important}
+  #book > div > div{padding:32px !important}
+}
+/* bucket story */
+.cb-story{display:flex;flex-wrap:wrap;align-items:center;gap:48px;padding:48px 0 0;font-family:'Sora',system-ui,sans-serif}
+.cb-visual{flex:0 1 520px;min-width:0;margin:0 auto}
+.cb-visual svg{width:100%;max-width:520px;height:auto;display:block}
+.cb-copy{flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:24px}
+.cb-kicker{font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#C8F25A}
+.cb-title{margin:0;font-size:clamp(28px,3.6vw,44px);line-height:1.1;letter-spacing:-.035em;font-weight:600;min-height:2.2em}
+.cb-body{margin:0;font-size:19px;line-height:1.65;color:#B6BEC6;min-height:130px}
+.cb-controls{display:flex;align-items:center;gap:16px;margin-top:8px}
+.cb-arrow{width:48px;height:48px;border-radius:999px;border:1px solid #2C343C;background:transparent;color:#EEF1F3;font-size:18px;cursor:pointer}
+.cb-next{border:none;background:#C8F25A;color:#0A0C0F;font-weight:600}
+.cb-dots{display:flex;gap:10px;align-items:center}
+.cb-dot{width:8px;height:8px;border-radius:999px;border:none;padding:0;background:#3A434C;cursor:pointer;transition:width .3s,background .3s}
+.cb-dot.is-active{width:32px;background:#C8F25A}
+.cb-name{font-family:'Sora',sans-serif;font-size:17px;font-weight:600;fill:#EEF1F3}
+.cb-tag{font-family:'JetBrains Mono',monospace;font-size:15px;fill:#5B6470;transition:fill .4s}
+.cb-fade{transition:opacity .6s}
+.cb-slide{transition:transform 1s ease}
+@keyframes cbflow{to{stroke-dashoffset:-56}}
+@keyframes cbsplashL{0%{transform:translate(0,0);opacity:1}35%{transform:translate(-60px,-34px);opacity:1}100%{transform:translate(-150px,250px);opacity:0}}
+@keyframes cbsplashR{0%{transform:translate(0,0);opacity:1}35%{transform:translate(60px,-34px);opacity:1}100%{transform:translate(150px,250px);opacity:0}}
+@keyframes cbdripL{0%{transform:translate(0,0);opacity:1}100%{transform:translate(-46px,80px);opacity:0}}
+@keyframes cbdripR{0%{transform:translate(0,0);opacity:1}100%{transform:translate(46px,80px);opacity:0}}
+@keyframes cbdripD{0%{transform:translate(0,0);opacity:1}100%{transform:translate(0,64px);opacity:0}}
+.cb-stream{animation:cbflow .6s linear infinite}
+.cb-splashL{animation:cbsplashL 1.2s ease-in infinite}
+.cb-splashR{animation:cbsplashR 1.2s ease-in infinite}
+.cb-dripL{animation:cbdripL .9s ease-in infinite}
+.cb-dripR{animation:cbdripR .9s ease-in infinite}
+.cb-dripD{animation:cbdripD .9s ease-in infinite}
+.cb-d2{animation-delay:.3s}.cb-d3{animation-delay:.6s}
+@media (prefers-reduced-motion:reduce){.cb-stream,.cb-splashL,.cb-splashR,.cb-dripL,.cb-dripR,.cb-dripD{animation:none}}
+</style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="container">
-            <div class="logo"><img src="ClinicBucket logo.png" alt="ClinicBucket" style="height: 32px; margin-right: 12px;" /><span style="color: #000000; font-size: 16px; font-weight: 700;">Clinic</span><span style="color: #2563eb; font-size: 16px; font-weight: 700;">Bucket</span></div>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-links">
-                <li><a href="#process">Process</a></li>
-                <li><a href="#results">Results</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<div style="font-family: 'Sora', system-ui, sans-serif; color: #EEF1F3; background: #0A0C0F; min-height: 100%">
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Think of your clinic as a bucket</h1>
-            <p>Most cannabis clinics waste money on weak Google Ads, lose patients through poor sales conversion, then watch them disappear forever. We fix your complete bucket system for predictable growth.</p>
-            <a href="https://calendly.com/jgallagher-clinicbucket/30min" class="cta-button" target="_blank">Free bucket inspection</a>
-        </div>
-    </section>
-
-    <!-- How We Work Section -->
-    <section id="process" class="section process">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">How we fix your bucket</h2>
-                <p class="section-subtitle">A systematic four step approach to transform your leaky bucket into a revenue generating machine.</p>
-            </div>
-            <div class="process-grid">
-                <div class="process-card">
-                    <h3>1. Bucket inspection</h3>
-                    <p>We audit your Google Ads to ensure you're maximizing your spend on patient acquisition, analyse your conversion rates to identify where leads drop off, and pinpoint exactly where patients leak from your system. Full diagnostic of every revenue leak from first click to long-term retention.</p>
-                </div>
-                <div class="process-card">
-                    <h3>2. Custom repair blueprint</h3>
-                    <p>Based on what we find, we create your specific repair plan. Some buckets need the hose strengthened first, others need the opening widened, most need holes patched. We prioritize for maximum impact.</p>
-                </div>
-                <div class="process-card">
-                    <h3>3. Complete bucket rebuild</h3>
-                    <p>We optimize your ad spend, tighten your sales conversion, and plug every retention gap with automation. Your team learns how to run the system without us.</p>
-                </div>
-                <div class="process-card">
-                    <h3>4. Ongoing maintenance</h3>
-                    <p>We monitor your bucket's performance to ensure no new leaks develop. Regular check ins, performance tracking, and continuous optimization to keep your bucket sealed and growing.</p>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 60px;">
-                <a href="https://calendly.com/jgallagher-clinicbucket/30min" class="cta-button" target="_blank">Free bucket inspection</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Results Section -->
-    <section id="results" class="section results">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Proven results</h2>
-                <p class="section-subtitle">Real outcomes from clinics who fixed their complete bucket system: stronger hose, wider opening, sealed holes.</p>
-            </div>
-            
-            <div class="results-grid">
-                <div class="result-card">
-                    <div class="result-number">27x</div>
-                    <div class="result-label">Return on investment</div>
-                </div>
-                <div class="result-card">
-                    <div class="result-number">30%</div>
-                    <div class="result-label">Follow-up rate improvement</div>
-                </div>
-                <div class="result-card">
-                    <div class="result-number">500%+</div>
-                    <div class="result-label">Google reviews increase</div>
-                </div>
-                <div class="result-card">
-                    <div class="result-number">12,000+</div>
-                    <div class="result-label">Patients in system experience</div>
-                </div>
-                <div class="result-card">
-                    <div class="result-number">$195k</div>
-                    <div class="result-label">Annual revenue</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="section services">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">How We Work With You</h2>
-                <p class="section-subtitle">We start with understanding your clinic's unique situation, then offer solutions tailored to your specific needs.</p>
-            </div>
-            
-            <div style="padding: 40px 0; margin: 40px auto; max-width: 800px; text-align: center;">
-                <h3 style="color: #1e293b; margin-bottom: 20px;">Step 1: Comprehensive Business Assessment</h3>
-                <p style="font-size: 18px; line-height: 1.6; margin-bottom: 20px;">We analyze your entire patient journey to identify exactly where your bucket is leaking. This assessment shows you which improvements will have the biggest impact on your bottom line.</p>
-                <p style="font-size: 16px; color: #64748b;"><strong>From here, you choose:</strong> Fix everything at once for maximum impact, or focus on specific areas that need immediate attention.</p>
-            </div>
-            
-            <div class="section-header" style="margin-top: 60px;">
-                <h3 style="color: #334155;">Step 2: Choose Your Solutions</h3>
-            </div>
-            
-            <div class="pipeline-visual">
-                <div class="pipeline-flow">
-                    <span>Google Ads</span> → <span>Sales Conversion</span> → <span>Data Organization</span> → <span>Feedback Systems</span> → <span>Retention Automation</span>
-                </div>
-            </div>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Strengthen the hose: Google Ads optimization</h3>
-                    <p style="margin-bottom: 15px;">Your hose (Google Ads) should pour in high-quality patients, not waste money on the wrong people. We optimize for cannabis compliance, lifetime value targeting, and conversion rates</p>
-                    <p><strong>AI-enhanced targeting and bidding strategies</strong> identify and acquire your most valuable patients while maximizing every dollar of ad spend.</p>
-                    <span class="service-tag">✓ Available as focused solution</span>
-                </div>
-                <div class="service-card">
-    <h3>Widen the opening: Sales conversion system</h3>
-    <p style="margin-bottom: 15px;">If your opening is too narrow, patients bounce before booking appointments. We widen it with systematic processes that remove friction and build trust, turning more visitors into actual patients.</p>
-    <p><strong>Data-driven optimization</strong> reveals exactly where prospects drop off and what drives cannabis patients to take action.</p>
-    <span class="service-tag">✓ Available as focused solution</span>
+<header style="border-bottom: 1px solid #161B20">
+<div style="max-width: 1160px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="font-weight: 700; font-size: 20px; letter-spacing: -0.02em">ClinicBucket<span style="color: #C8F25A">.</span></div>
+<nav style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 15px">
+<a href="#services" style="color: #B6BEC6; text-decoration: none">Services</a>
+<a href="#study" style="color: #B6BEC6; text-decoration: none">The study</a>
+<a href="#how" style="color: #B6BEC6; text-decoration: none">How it works</a>
+<a href="#about" style="color: #B6BEC6; text-decoration: none">About</a>
+<a href="https://calendly.com/jgallagher-clinicbucket/intro" target="_blank" rel="noopener" style="background: #C8F25A; color: #0A0C0F; text-decoration: none; padding: 12px 20px; border-radius: 999px; font-weight: 600">Book a call</a>
+</nav>
 </div>
-                <div class="service-card">
-                    <h3>Organize the flow: Patient data systems</h3>
-                    <p style="margin-bottom: 15px;">Track every drop flowing through your bucket. We organize patient data for strategic insights and opportunities that make your entire system work harder.</p>
-                    <p><strong>AI-driven analytics and predictive modeling</strong> uncover patterns invisible to manual analysis, forecasting value and identifying hidden growth levers.</p>
-                    <span class="service-tag">✓ Available as focused solution</span>
-                </div>
-                <div class="service-card">
-                    <h3>Install warning sensors: Feedback loops</h3>
-                    <p style="margin-bottom: 15px;">Early detection prevents new leaks from forming. We install systems that catch problems at every patient touchpoint before they become expensive holes in your bucket.</p>
-                    <p><strong>Real-time monitoring</strong> identifies issues immediately, while systematic intelligence gathering reveals what patients won't tell you directly.</p>
-                    <span class="service-tag">✓ Available as focused solution</span>
-                </div>
-                <div class="service-card">
-                    <h3>Patch the holes: Retention automation</h3>
-                    <p style="margin-bottom: 15px;">The biggest leaks are patients who never return. We patch these holes with our proven retention system that keeps patients engaged and returning.</p>
-                    <p><strong>Automated retention sequences</strong> bring patients back at the right moment, achieving 30% improvement in follow-up rates and 27x ROI - without discount campaigns.</p>
-                    <span class="service-tag">✓ Available as focused solution</span>
-                </div>
-            </div>
-        </div>
-    </section>
+</header>
 
-    <!-- About Section -->
-    <section id="about" class="section about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="james-profile.jpg" alt="James Gallagher">
-                </div>
-                <div class="about-text">
-                    <h2>Founder - James Gallagher</h2>
-                    <p><strong>Former Google employee who now fixes leaky cannabis clinic buckets.</strong></p>
-                    
-                    <p>Three years at Google revealed how the world's best companies acquire customers. Experience as Revenue Operations Manager at a leading Australian cannabis clinic showed that most clinics are leaky buckets losing money in three places: weak Google Ads, poor sales conversion, and poor retention.</p>
+<section>
+<div style="max-width: 1160px; margin: 0 auto; padding: 104px 24px 0; text-align: center; display: flex; flex-direction: column; align-items: center">
+<h1 style="margin: 0; font-size: clamp(2.6rem, 6vw, 4.5rem); line-height: 1.02; letter-spacing: -0.04em; font-weight: 600; max-width: 960px">Growth for cannabis clinics.<br><span style="color: #C8F25A">From first click to fifth script.</span></h1>
+<p style="margin: 24px 0 0; font-size: 19px; line-height: 1.6; color: #B6BEC6; max-width: 640px">Get more of the right patients in, more of them booked and fewer of them leaving your clinic. Built by a former Google employee on a system that ran across 12,000+ patients.</p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 36px">
+<a href="https://calendly.com/jgallagher-clinicbucket/intro" target="_blank" rel="noopener" style="background: #C8F25A; color: #0A0C0F; text-decoration: none; padding: 17px 28px; border-radius: 999px; font-weight: 600; font-size: 17px">Book a 30 minute call</a>
+<a href="#study" style="color: #EEF1F3; text-decoration: none; padding: 17px 28px; border-radius: 999px; font-weight: 500; font-size: 17px; border: 1px solid #2C343C">Read the study</a>
+</div>
+</div>
 
-                    <p>This led to building a complete system that fixes all three leaks. Not just traffic. Not just conversion. Not just retention. The whole bucket.</p>
-                    
-                    <p><strong>What makes this different:</strong> Working with 12,000+ cannabis patients and analyzing their complete journeys provided the data to understand exactly what makes a high value patient. The approach is based on proven lifetime value metrics specific to cannabis clinics, not guesswork.</p>
+<div id="study" style="max-width: 1060px; margin: 80px auto 0; padding: 0 24px">
+<div style="background: #12161B; border: 1px solid #232A31; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px">
+<div style="font-weight: 600; font-size: 20px">We enquired at 24 UK clinics as a patient.</div>
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #B6BEC6">14 days · every touch logged</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); border-top: 1px solid #2C343C">
+<div style="padding: 24px 24px 8px 0"><div style="font-size: 56px; font-weight: 600; letter-spacing: -0.04em; line-height: 1">36.5<span style="font-size: 22px; color: #9AA4AD">/100</span></div><div style="font-size: 16px; color: #B6BEC6; margin-top: 12px">Market median score</div></div>
+<div style="padding: 24px 24px 8px 0"><div style="font-size: 56px; font-weight: 600; letter-spacing: -0.04em; line-height: 1">5<span style="font-size: 22px; color: #9AA4AD"> of 24</span></div><div style="font-size: 16px; color: #B6BEC6; margin-top: 12px">Clinics never made contact</div></div>
+<div style="padding: 24px 24px 8px 0"><div style="font-size: 56px; font-weight: 600; letter-spacing: -0.04em; line-height: 1">0</div><div style="font-size: 16px; color: #B6BEC6; margin-top: 12px">Clinics made 3 calls inside 14 days</div></div>
+</div>
+<div>
+<div style="font-size: 22px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 14px"><span style="color: #C8F25A">18 of 24</span> clinics never picked up the phone.</div>
+<div style="display: flex; height: 48px; border-radius: 10px; overflow: hidden">
+<div style="flex: 6 1 0; min-width: 120px; background: #232A31; color: #D2D8DD; display: flex; align-items: center; padding: 0 16px; font-size: 15px">6 called</div>
+<div style="flex: 18 1 0; background: #C8F25A; color: #0A0C0F; display: flex; align-items: center; padding: 0 16px; font-weight: 600; font-size: 15px">18 never called</div>
+</div>
+</div>
+<div style="color: #B6BEC6; font-size: 17px; line-height: 1.6">Most clinics send the same follow up whether a patient filled in a form or got all the way to the payment screen. Then they stop.</div>
+</div>
+</div>
+</section>
 
-                    <p><strong>Combining Google expertise with advanced AI implementation</strong> to create systematic, scalable solutions. Leveraging AI tools to automate repetitive tasks, uncover hidden insights in your data, and build predictive models that give you a competitive edge.</p>
+<section id="bucket">
+<div style="max-width: 1160px; margin: 0 auto; padding: 128px 24px 0; text-align: center; display: flex; flex-direction: column; align-items: center">
+<h2 style="margin: 0; font-size: 44px; line-height: 1.08; letter-spacing: -0.035em; font-weight: 600">Think of your clinic as a bucket.</h2>
+<p style="margin: 20px 0 0; font-size: 21px; line-height: 1.5; color: #D2D8DD; max-width: 640px">The water in the bucket is your patients. The more water in the bucket, the more patients in your clinic.</p>
+</div>
+<div style="max-width: 1160px; margin: 0 auto; padding: 24px 24px 0">
+<div class="cb-story">
+<div class="cb-visual">
+<svg viewBox="0 0 520 600" role="img" aria-label="A hose pouring water into a bucket, showing how marketing, sales and retention fill or drain a clinic">
+<defs>
+<clipPath id="cbBucket"><path d="M140 210 L380 210 L350 500 L170 500 Z"></path></clipPath>
+<clipPath id="cbGap"><rect id="cbGapRect" x="218" y="200" width="64" height="320"></rect></clipPath>
+</defs>
+<path d="M140 210 L380 210 L350 500 L170 500 Z" fill="#12161B"></path>
+<path d="M20 70 C 110 70, 120 112, 200 112 L 222 112" fill="none" stroke="#3A434C" stroke-width="20" stroke-linecap="round"></path>
+<rect x="218" y="98" width="64" height="28" rx="6" fill="#9AA4AD"></rect>
+<path d="M140 210 A120 14 0 0 1 380 210" fill="none" stroke="#EEF1F3" stroke-width="3"></path>
+<g>
+<path d="M230 124 L270 124 L274 214 L226 214 Z" fill="#C8F25A"></path>
+<line class="cb-stream" x1="240" y1="126" x2="240" y2="214" stroke="#F1FCCB" stroke-opacity="0.7" stroke-width="3" stroke-dasharray="22 34" stroke-linecap="round"></line>
+<line class="cb-stream" x1="258" y1="126" x2="258" y2="214" stroke="#F1FCCB" stroke-opacity="0.5" stroke-width="2" stroke-dasharray="14 42" stroke-linecap="round"></line>
+</g>
+<g clip-path="url(#cbBucket)">
+<g clip-path="url(#cbGap)">
+<rect x="226" y="200" width="48" height="300" fill="#C8F25A"></rect>
+<line class="cb-stream" x1="240" y1="200" x2="240" y2="500" stroke="#F1FCCB" stroke-opacity="0.7" stroke-width="3" stroke-dasharray="22 34" stroke-linecap="round"></line>
+<line class="cb-stream" x1="258" y1="200" x2="258" y2="500" stroke="#F1FCCB" stroke-opacity="0.5" stroke-width="2" stroke-dasharray="14 42" stroke-linecap="round"></line>
+</g>
+<rect id="cbWater" x="120" y="200" width="280" height="320" fill="#C8F25A" style="transform: translateY(278px)"></rect>
+</g>
+<g id="cbHoles" class="cb-fade" style="opacity:0"></g>
+<g id="cbDrips"></g>
+<g id="cbPatches" class="cb-fade" style="opacity:0"></g>
+<path d="M140 210 L170 500 L350 500 L380 210" fill="none" stroke="#EEF1F3" stroke-width="3" stroke-linejoin="round"></path>
+<path d="M140 210 A120 14 0 0 0 380 210" fill="none" stroke="#EEF1F3" stroke-width="3"></path>
+<g id="cbLid" class="cb-fade" style="opacity:0">
+<rect id="cbLidL" class="cb-slide" x="118" y="194" width="132" height="16" rx="5" fill="#5B6470" stroke="#EEF1F3" stroke-width="2" style="transform: translateX(-150px)"></rect>
+<rect id="cbLidR" class="cb-slide" x="250" y="194" width="132" height="16" rx="5" fill="#5B6470" stroke="#EEF1F3" stroke-width="2" style="transform: translateX(150px)"></rect>
+</g>
+<g id="cbSplash" class="cb-fade" style="opacity:0">
+<circle class="cb-splashL" cx="226" cy="190" r="6" fill="#C8F25A"></circle>
+<circle class="cb-splashL cb-d2" cx="230" cy="188" r="5" fill="#C8F25A"></circle>
+<circle class="cb-splashL cb-d3" cx="234" cy="190" r="6" fill="#C8F25A"></circle>
+<circle class="cb-splashR" cx="274" cy="190" r="6" fill="#C8F25A"></circle>
+<circle class="cb-splashR cb-d2" cx="270" cy="188" r="5" fill="#C8F25A"></circle>
+<circle class="cb-splashR cb-d3" cx="266" cy="190" r="6" fill="#C8F25A"></circle>
+</g>
+<text x="20" y="24" class="cb-name">The hose</text>
+<text x="20" y="46" class="cb-tag" id="cbTag0">MARKETING</text>
+<text x="400" y="164" class="cb-name">The opening</text>
+<text x="400" y="186" class="cb-tag" id="cbTag1">SALES</text>
+<text x="400" y="420" class="cb-name">The holes</text>
+<text x="400" y="442" class="cb-tag" id="cbTag2">RETENTION</text>
+<text x="260" y="570" text-anchor="middle" class="cb-name">The bucket</text>
+<text x="260" y="592" text-anchor="middle" class="cb-tag" style="fill:#9AA4AD">YOUR CLINIC</text>
+</svg>
+</div>
+<div class="cb-copy">
+<div class="cb-kicker" id="cbKicker"></div>
+<h3 class="cb-title" id="cbTitle"></h3>
+<p class="cb-body" id="cbBody"></p>
+<div class="cb-controls">
+<button type="button" class="cb-arrow" id="cbBack" aria-label="Previous step">←</button>
+<div class="cb-dots" id="cbDots"></div>
+<button type="button" class="cb-arrow cb-next" id="cbNext" aria-label="Next step">→</button>
+</div>
+</div>
+</div>
 
-                    <p><strong>The results speak:</strong> 27x ROI. 30% follow-up rate improvement. 500%+ more reviews. $195k annual revenue. Every metric comes from fixing complete bucket systems, not partial solutions.</p>
-                    
-                    <p>This experience also led to founding <a href="https://twobirdsonestoned.co/" target="_blank">Two Birds One Stoned</a>, based on a belief in this industry's future. This isn't about riding a wave. It's about building sustainable, systematic growth for clinics that are changing lives.</p>
-                    
-                    <a href="https://www.linkedin.com/in/james-gallagher12/" class="linkedin-link" target="_blank">Connect on LinkedIn →</a>
-                </div>
-            </div>
-        </div>
-    </section>
+</div>
+</section>
 
-    <!-- Value Proposition Section -->
-    <section class="value-prop section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Most consultants only fix part of your bucket</h2>
-                <p class="section-subtitle">You need someone who understands the complete system from hose to holes.</p>
-            </div>
-            <div class="comparison-grid">
-                <div class="comparison-card problem">
-                    <h3>Partial bucket repairs</h3>
-                    <ul>
-                        <li>Google Ads agencies strengthen your hose but ignore the holes</li>
-                        <li>Sales consultants widen your opening but your hose stays weak</li>
-                        <li>Retention specialists patch holes but ignore the narrow opening</li>
-                        <li>Manual processes and guesswork with no continuous optimization</li>
-                        <li>Result: Water keeps leaking somewhere else</li>
-                    </ul>
-                </div>
-                <div class="comparison-card solution">
-                    <h3>Complete bucket transformation</h3>
-                    <ul>
-                        <li>Stronger hose: Google Ads that bring quality patients efficiently</li>
-                        <li>Wider opening: Sales system that converts visitors to appointments</li>
-                        <li>Sealed holes: Retention automation that keeps patients coming back</li>
-                        <li>AI-powered systems that continuously learn and optimize, turning your clinic into a self-improving revenue machine</li>
-                        <li>Result: Your bucket fills faster and holds more water</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="services">
+<div style="max-width: 1160px; margin: 0 auto; padding: 112px 24px 0">
+<h2 style="margin: 0; font-size: 44px; line-height: 1.08; letter-spacing: -0.035em; font-weight: 600; max-width: 720px">Fix the hose, the opening and the holes.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 44px">
+<div style="background: #12161B; border: 1px solid #232A31; border-radius: 18px; padding: 30px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #C8F25A">The hose / Google Ads</div>
+<h3 style="margin: 0; font-size: 23px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.25">Ads that get approved and pay back.</h3>
+<p style="margin: 0; color: #B6BEC6; font-size: 17px; line-height: 1.6">LegitScript ready setup, compliant copy, defending your brand name from competitor bidding, and bidding on patient lifetime value, not cheap clicks.</p>
+<div style="margin-top: auto; padding-top: 12px; border-top: 1px solid #232A31; font-size: 15px; color: #EEF1F3">Fix 1</div>
+</div>
+<div style="background: #12161B; border: 1px solid #232A31; border-radius: 18px; padding: 30px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #C8F25A">The opening / Conversion</div>
+<h3 style="margin: 0; font-size: 23px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.25">More enquiries become paid consults.</h3>
+<p style="margin: 0; color: #B6BEC6; font-size: 17px; line-height: 1.6">Speed to lead, recovering patients who stall at the payment screen, and a call structure your team runs the same way every time.</p>
+<div style="margin-top: auto; padding-top: 12px; border-top: 1px solid #232A31; font-size: 15px; color: #EEF1F3">Fix 2</div>
+</div>
+<div style="background: #12161B; border: 1px solid #232A31; border-radius: 18px; padding: 30px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #C8F25A">The holes / Retention</div>
+<h3 style="margin: 0; font-size: 23px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.25">Patients come back for the next script.</h3>
+<p style="margin: 0; color: #B6BEC6; font-size: 17px; line-height: 1.6">Follow up matched to where each patient is in their journey. Right message, right channel, right moment.</p>
+<div style="margin-top: auto; padding-top: 12px; border-top: 1px solid #232A31; font-size: 15px; color: #EEF1F3">Fix 3</div>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Ready to scale your clinic?</h2>
-                <p class="section-subtitle">Let's discuss how systematic optimization can transform your clinic's operations and revenue.</p>
-            </div>
-            <div id="form-success" style="display: none; background: #10b981; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; text-align: center;">
-                <h3 style="margin: 0 0 10px 0;">Thank you for your message!</h3>
-                <p style="margin: 0;">I'll get back to you within 24 hours.</p>
-            </div>
-            <form class="contact-form" action="https://formsubmit.co/jgallagher@clinicbucket.com" method="POST">
-                <input type="hidden" name="_subject" value="New consultation inquiry from ClinicBucket">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://jamesgall12.github.io/ClinicBuckets/thank-you.html">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required placeholder="your@email.com">
-                </div>
-                <div class="form-group">
-                    <label for="clinic">Clinic name</label>
-                    <input type="text" id="clinic" name="clinic">
-                </div>
-                <div class="form-group">
-                    <label for="message">Tell me about your biggest operational challenge</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send message</button>
-            </form>
-        </div>
-    </section>
+<section id="how">
+<div style="max-width: 1160px; margin: 0 auto; padding: 128px 24px 0">
+<h2 style="margin: 0; font-size: 44px; line-height: 1.08; letter-spacing: -0.035em; font-weight: 600">How an engagement works</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0; margin-top: 44px; border-top: 1px solid #2C343C">
+<div style="padding: 28px 28px 28px 0; border-bottom: 1px solid #2C343C">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #C8F25A">Step 1</div>
+<div style="font-size: 22px; font-weight: 600; margin-top: 10px">A 30 minute call</div>
+<p style="margin: 10px 0 0; color: #B6BEC6; font-size: 17px; line-height: 1.6">We walk through where your clinic is leaking, using your numbers. You leave knowing your biggest gap, whether or not we work together.</p>
+</div>
+<div style="padding: 28px 28px 28px 0; border-bottom: 1px solid #2C343C">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #C8F25A">Step 2</div>
+<div style="font-size: 22px; font-weight: 600; margin-top: 10px">Audit and fix plan</div>
+<p style="margin: 10px 0 0; color: #B6BEC6; font-size: 17px; line-height: 1.6">We go through your clinic as a patient would, from first click to repeat script, and mark every leak. You get a prioritised plan: what to fix, how to fix it and what it's worth. Yours to keep.</p>
+</div>
+<div style="padding: 28px 28px 28px 0; border-bottom: 1px solid #2C343C">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #C8F25A">Step 3</div>
+<div style="font-size: 22px; font-weight: 600; margin-top: 10px">Four week build</div>
+<p style="margin: 10px 0 0; color: #B6BEC6; font-size: 17px; line-height: 1.6">We build the fixes inside your systems, alongside your team. Tracking goes in first so you can see the change.</p>
+</div>
+<div style="padding: 28px 28px 28px 0; border-bottom: 1px solid #2C343C">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #C8F25A">Step 4</div>
+<div style="font-size: 22px; font-weight: 600; margin-top: 10px">Monthly support</div>
+<p style="margin: 10px 0 0; color: #B6BEC6; font-size: 17px; line-height: 1.6">We run, measure and improve it each month. Stop any time with 30 days' notice.</p>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 ClinicBucket.com | James Gallagher Consulting. All rights reserved.</p>
-        </div>
-    </footer>
+<section>
+<div style="max-width: 1160px; margin: 0 auto; padding: 128px 24px 0">
+<div style="background: #12161B; border: 1px solid #232A31; border-radius: 20px; padding: 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: space-between">
+<div style="flex: 1 1 320px; min-width: 0">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #B6BEC6">Track record</div>
+<div style="font-size: 26px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.3; margin-top: 10px">A follow up system built at a 12,000 patient cannabis clinic in Australia. Results over 11 months:</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 48px">
+<div><div style="font-size: 52px; font-weight: 600; letter-spacing: -0.04em; color: #C8F25A">27x</div><div style="color: #B6BEC6; font-size: 15px">Return on investment</div></div>
+<div><div style="font-size: 52px; font-weight: 600; letter-spacing: -0.04em">+30%</div><div style="color: #B6BEC6; font-size: 15px">Follow up booking rate</div></div>
+<div><div style="font-size: 52px; font-weight: 600; letter-spacing: -0.04em">1,960</div><div style="color: #B6BEC6; font-size: 15px">Extra bookings</div></div>
+</div>
+</div>
+</div>
+</section>
 
-    <script src="script.js"></script>
+<section>
+<div style="max-width: 1160px; margin: 0 auto; padding: 128px 24px 0">
+<h2 style="margin: 0; font-size: 44px; line-height: 1.08; letter-spacing: -0.035em; font-weight: 600; max-width: 760px">Built to sit inside your clinic, not on top of it.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px; margin-top: 44px">
+<div><div style="font-size: 20px; font-weight: 600">Your systems</div><p style="margin: 10px 0 0; color: #B6BEC6; font-size: 17px; line-height: 1.6">We build on the CRM you already run. No new software to buy, no patient data moved elsewhere.</p></div>
+<div><div style="font-size: 20px; font-weight: 600">Your team owns it</div><p style="margin: 10px 0 0; color: #B6BEC6; font-size: 17px; line-height: 1.6">We train your staff to run it. Nothing breaks if we step away.</p></div>
+<div><div style="font-size: 20px; font-weight: 600">A clear paper trail</div><p style="margin: 10px 0 0; color: #B6BEC6; font-size: 17px; line-height: 1.6">Every follow up is logged, so you can show how patients are looked after between appointments.</p></div>
+</div>
+</div>
+</section>
+
+<section id="about">
+<div style="max-width: 1160px; margin: 0 auto; padding: 128px 24px 0; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
+<img src="james-profile.jpg" alt="James Gallagher, founder of ClinicBucket" style="flex: 0 0 300px; width: 300px; height: 370px; object-fit: cover; border-radius: 20px">
+<div style="flex: 1 1 440px; min-width: 0">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #C8F25A">Founder</div>
+<h2 style="margin: 10px 0 0; font-size: 40px; line-height: 1.1; letter-spacing: -0.035em; font-weight: 600">James Gallagher</h2>
+<p style="margin: 20px 0 0; color: #B6BEC6; font-size: 18px; line-height: 1.65">Three years at Google in ads and commerce. Then revenue operations at a 12,000 patient medical cannabis clinic in Australia, where I built the follow up system ClinicBucket runs on.</p>
+<p style="margin: 16px 0 0; color: #B6BEC6; font-size: 18px; line-height: 1.65">Now I work with a small number of UK clinics at a time, so each one gets me, not a junior account manager.</p>
+<a href="https://www.linkedin.com/in/james-gallagher12/" target="_blank" rel="noopener" style="display: inline-block; margin-top: 20px; font-size: 16px; font-weight: 500">Connect on LinkedIn →</a>
+</div>
+</div>
+</section>
+
+<section>
+<div style="max-width: 860px; margin: 0 auto; padding: 128px 24px 0">
+<h2 style="margin: 0 0 32px; font-size: 40px; line-height: 1.1; letter-spacing: -0.035em; font-weight: 600">Questions clinics ask</h2>
+<details style="border-top: 1px solid #2C343C; padding: 22px 0">
+<summary style="font-size: 19px; font-weight: 500; display: flex; justify-content: space-between; gap: 16px">You work with other clinics. Will our information end up with a competitor?<span style="color: #C8F25A">+</span></summary>
+<p style="margin: 14px 0 0; color: #B6BEC6; font-size: 17px; line-height: 1.6">No. Everything I see in your clinic stays with your clinic, and that's written into our contract before I start. I never share one clinic's numbers, systems or plans with another. Market research only ever appears anonymised and across the whole market.</p>
+</details>
+<details style="border-top: 1px solid #2C343C; padding: 22px 0">
+<summary style="font-size: 19px; font-weight: 500; display: flex; justify-content: space-between; gap: 16px">Will this replace anyone on my team?<span style="color: #C8F25A">+</span></summary>
+<p style="margin: 14px 0 0; color: #B6BEC6; font-size: 17px; line-height: 1.6">No. We build systems your team runs. The repetitive chasing gets automated, so your staff spend their time on the patients who need a person. It makes their day easier, not their job smaller.</p>
+</details>
+<details style="border-top: 1px solid #2C343C; padding: 22px 0">
+<summary style="font-size: 19px; font-weight: 500; display: flex; justify-content: space-between; gap: 16px">We already have a marketing agency. Why would we need you?<span style="color: #C8F25A">+</span></summary>
+<p style="margin: 14px 0 0; color: #B6BEC6; font-size: 17px; line-height: 1.6">Most agencies don't know cannabis. It's one of the most restricted things you can market in the UK: prescription only medicines can't be promoted to the public under MHRA rules, the CQC (or HIW in Wales) regulates how your clinic operates, and Google won't run your ads without LegitScript certification and strict healthcare policy compliance. One wrong word in an ad can get the account suspended. You need someone who runs campaigns at agency level and knows these rules inside out. And where an agency stops at the hose, we also fix the opening and the holes, so every pound goes further.</p>
+</details>
+<details style="border-top: 1px solid #2C343C; padding: 22px 0">
+<summary style="font-size: 19px; font-weight: 500; display: flex; justify-content: space-between; gap: 16px">Is it compliant with UK rules?<span style="color: #C8F25A">+</span></summary>
+<p style="margin: 14px 0 0; color: #B6BEC6; font-size: 17px; line-height: 1.6">Everything is built for the UK: consent based messaging under GDPR, no product promotion in patient communications, and Google Ads set up for LegitScript certification. Every follow up is logged, so you have a clear record of how patients are looked after.</p>
+</details>
+<details style="border-top: 1px solid #2C343C; padding: 22px 0">
+<summary style="font-size: 19px; font-weight: 500; display: flex; justify-content: space-between; gap: 16px">Your results are from Australia. Will it work in the UK?<span style="color: #C8F25A">+</span></summary>
+<p style="margin: 14px 0 0; color: #B6BEC6; font-size: 17px; line-height: 1.6">The patient journey is the same: enquire, book, pay, attend, come back for the next script. Our study of 24 UK clinics found the same leaks here, often worse.</p>
+</details>
+<details style="border-top: 1px solid #2C343C; padding: 22px 0">
+<summary style="font-size: 19px; font-weight: 500; display: flex; justify-content: space-between; gap: 16px">Do you need access to patient data?<span style="color: #C8F25A">+</span></summary>
+<p style="margin: 14px 0 0; color: #B6BEC6; font-size: 17px; line-height: 1.6">We work inside your existing systems alongside your team, so patient data stays where it is. An NDA is signed before we start.</p>
+</details>
+<details style="border-top: 1px solid #2C343C; padding: 22px 0">
+<summary style="font-size: 19px; font-weight: 500; display: flex; justify-content: space-between; gap: 16px">Which CRM do you work with?<span style="color: #C8F25A">+</span></summary>
+<p style="margin: 14px 0 0; color: #B6BEC6; font-size: 17px; line-height: 1.6">The one you already have. We build around your setup rather than asking you to switch.</p>
+</details>
+<details style="border-top: 1px solid #2C343C; padding: 22px 0">
+<summary style="font-size: 19px; font-weight: 500; display: flex; justify-content: space-between; gap: 16px">Can we just do Google Ads?<span style="color: #C8F25A">+</span></summary>
+<p style="margin: 14px 0 0; color: #B6BEC6; font-size: 17px; line-height: 1.6">Yes. Google Ads is available on its own, including getting through LegitScript certification.</p>
+</details>
+<details style="border-top: 1px solid #2C343C; padding: 22px 0">
+<summary style="font-size: 19px; font-weight: 500; display: flex; justify-content: space-between; gap: 16px">How long before we see a difference?<span style="color: #C8F25A">+</span></summary>
+<p style="margin: 14px 0 0; color: #B6BEC6; font-size: 17px; line-height: 1.6">Setup takes four weeks. Tracking goes in first, so you see the before and after in your own numbers.</p>
+</details>
+<details style="border-top: 1px solid #2C343C; border-bottom: 1px solid #2C343C; padding: 22px 0">
+<summary style="font-size: 19px; font-weight: 500; display: flex; justify-content: space-between; gap: 16px">What does it cost?<span style="color: #C8F25A">+</span></summary>
+<p style="margin: 14px 0 0; color: #B6BEC6; font-size: 17px; line-height: 1.6">It depends on your clinic's size and what needs fixing. You'll get a fixed price after the first call, before anything starts. The audit and fix plan can be bought on its own.</p>
+</details>
+</div>
+</section>
+
+<section id="book">
+<div style="max-width: 1160px; margin: 0 auto; padding: 128px 24px 96px">
+<div style="background: #C8F25A; color: #0A0C0F; border-radius: 24px; padding: 56px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: space-between">
+<div style="flex: 1 1 460px; min-width: 0">
+<h2 style="margin: 0; font-size: 44px; line-height: 1.06; letter-spacing: -0.04em; font-weight: 600">See where your clinic is leaking.</h2>
+<p style="margin: 16px 0 0; font-size: 18px; line-height: 1.55; color: #1E2A0A">30 minutes on a call. You'll leave with your biggest gap, whether or not we work together.</p>
+</div>
+<a href="https://calendly.com/jgallagher-clinicbucket/intro" target="_blank" rel="noopener" style="background: #0A0C0F; color: #FFFFFF; text-decoration: none; padding: 18px 30px; border-radius: 999px; font-weight: 600; font-size: 17px">Book a 30 minute call</a>
+</div>
+</div>
+</section>
+
+<footer style="border-top: 1px solid #161B20">
+<div style="max-width: 1160px; margin: 0 auto; padding: 36px 24px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; color: #9AA4AD; font-size: 14px">
+<div>ClinicBucket Ltd · Registered in England and Wales, No. 16926659</div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px">
+<a href="mailto:jgallagher@clinicbucket.com" style="color: #B6BEC6; text-decoration: none">jgallagher@clinicbucket.com</a>
+<a href="https://www.linkedin.com/in/james-gallagher12/" target="_blank" rel="noopener" style="color: #B6BEC6; text-decoration: none">LinkedIn</a>
+</div>
+</div>
+</footer>
+
+</div>
+<script>
+(function () {
+  var ACCENT = '#C8F25A', DIM = '#5B6470', NS = 'http://www.w3.org/2000/svg';
+  var STEP_MS = 10500;
+  var steps = [
+    { kicker: 'The hose', title: 'The hose is your marketing.', body: 'It pours water into the bucket, the same way your marketing brings patients to your clinic. Turn up the hose and more patients enquire.' },
+    { kicker: 'The opening', title: 'The opening at the top of the bucket is your sales process.', body: 'Its size decides how much water gets in at a time, the same way your sales process decides how many enquiries become booked, paying patients. A narrow opening means most of the water splashes off.' },
+    { kicker: 'The holes', title: 'The holes in the bucket are patients leaving.', body: 'Water leaks out through the holes, the same way patients leave your clinic when they don’t rebook, don’t renew their script, or move to another clinic.' },
+    { kicker: 'Fix all three', title: 'Wide opening. No holes. A full bucket.', body: 'Fix all three and the bucket fills.' }
+  ];
+  var holes = [
+    { x: 169, y: 395, s: 'L' }, { x: 173, y: 435, s: 'L' }, { x: 177, y: 475, s: 'L' },
+    { x: 351, y: 395, s: 'R' }, { x: 347, y: 435, s: 'R' }, { x: 343, y: 475, s: 'R' },
+    { x: 225, y: 490, s: 'D' }, { x: 295, y: 490, s: 'D' }
+  ];
+  function el(tag, attrs) { var e = document.createElementNS(NS, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); return e; }
+  function $(id) { return document.getElementById(id); }
+  if (!$('cbWater')) return;
+
+  var gHoles = $('cbHoles'), gDrips = $('cbDrips'), gPatch = $('cbPatches'), drips = [];
+  holes.forEach(function (h, i) {
+    gHoles.appendChild(el('ellipse', { cx: h.x, cy: h.y, rx: 8, ry: 7, fill: '#0A0C0F', stroke: '#EEF1F3', 'stroke-width': 2 }));
+    gPatch.appendChild(el('rect', { x: h.x - 9, y: h.y - 8, width: 18, height: 16, rx: 4, fill: '#3A434C', stroke: '#0A0C0F', 'stroke-width': 1.5 }));
+    var ox = h.s === 'L' ? -10 : h.s === 'R' ? 10 : 0, oy = h.s === 'D' ? 10 : 0;
+    var d1 = el('circle', { cx: h.x + ox, cy: h.y + oy, r: 5, fill: ACCENT, 'class': 'cb-drip' + h.s + (i % 2 ? ' cb-d2' : '') });
+    var d2 = el('circle', { cx: h.x + ox, cy: h.y + oy, r: 4, fill: ACCENT, 'class': 'cb-drip' + h.s + (i % 2 ? ' cb-d3' : ' cb-d2') });
+    [d1, d2].forEach(function (d) { var w = el('g', {}); w.style.opacity = 0; w.style.transition = 'opacity .3s'; w.appendChild(d); gDrips.appendChild(w); drips.push({ node: w, y: h.y }); });
+  });
+
+  var dotsWrap = $('cbDots'), dots = [];
+  steps.forEach(function (_, i) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'cb-dot'; b.setAttribute('aria-label', 'Step ' + (i + 1));
+    b.addEventListener('click', function () { go(i, true); });
+    dotsWrap.appendChild(b); dots.push(b);
+  });
+
+  var step = 0, t = 0, auto = true;
+  var water = $('cbWater'), gap = $('cbGapRect');
+
+  function render() {
+    var s = steps[step], lidOn = step === 1 || step === 2, g = lidOn ? 14 : 64;
+    $('cbKicker').textContent = s.kicker; $('cbTitle').textContent = s.title; $('cbBody').textContent = s.body;
+    gap.setAttribute('x', 250 - g / 2); gap.setAttribute('width', g);
+    $('cbLid').style.opacity = lidOn ? 1 : 0;
+    $('cbLidL').style.transform = 'translateX(' + (lidOn ? -g / 2 : -150) + 'px)';
+    $('cbLidR').style.transform = 'translateX(' + (lidOn ? g / 2 : 150) + 'px)';
+    $('cbSplash').style.opacity = lidOn ? 1 : 0;
+    gHoles.style.opacity = step === 2 ? 1 : 0;
+    gPatch.style.opacity = step === 3 ? 1 : 0;
+    ['cbTag0', 'cbTag1', 'cbTag2'].forEach(function (id, i) { $(id).style.fill = (step === i || step === 3) ? ACCENT : DIM; });
+    dots.forEach(function (d, i) { d.classList.toggle('is-active', i === step); });
+  }
+  function level() {
+    var steady = step === 0 || step === 1;
+    var p = Math.min(t / (steady ? STEP_MS : 7000), 1);
+    var e = steady ? p : 1 - (1 - p) * (1 - p);
+    var top = 478 + ([300, 405, 372, 232][step] - 478) * e;
+    water.style.transition = t === 0 ? 'transform .5s ease' : 'transform .12s linear';
+    water.style.transform = 'translateY(' + (top - 200) + 'px)';
+    drips.forEach(function (d) { d.node.style.opacity = (step === 2 && top < d.y - 4) ? 1 : 0; });
+  }
+  function go(i, manual) { step = (i + steps.length) % steps.length; t = 0; if (manual) auto = false; render(); level(); }
+  $('cbNext').addEventListener('click', function () { go(step + 1, true); });
+  $('cbBack').addEventListener('click', function () { go(step - 1, true); });
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  render(); level();
+  setInterval(function () {
+    t += 100;
+    if (t >= STEP_MS && auto && !reduce) { go(step + 1, false); return; }
+    t = Math.min(t, STEP_MS); level();
+  }, 100);
+})();
+</script>
 </body>
 </html>
