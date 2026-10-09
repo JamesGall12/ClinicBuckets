@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJTL8WZR3B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KJTL8WZR3B');
+</script>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ClinicBucket | Growth for UK medical cannabis clinics</title>
@@ -624,6 +633,15 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #C8
     t = Math.min(t, STEP_MS); level();
   }, 100);
 })();
+</script>
+<script>
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a[href*="calendly.com"]');
+  if (a && window.gtag) {
+    var sec = a.closest('section,header');
+    gtag('event', 'book_call_click', { link_text: (a.textContent || '').trim(), location: sec ? (sec.id || sec.tagName.toLowerCase()) : 'page' });
+  }
+});
 </script>
 </body>
 </html>
