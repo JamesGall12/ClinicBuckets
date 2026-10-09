@@ -176,10 +176,14 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #C8
 </g>
 <text x="20" y="24" class="cb-name">The hose</text>
 <text x="20" y="46" class="cb-tag" id="cbTag0">MARKETING</text>
-<text x="400" y="164" class="cb-name">The opening</text>
-<text x="400" y="186" class="cb-tag" id="cbTag1">SALES</text>
-<text x="400" y="420" class="cb-name">The holes</text>
-<text x="400" y="442" class="cb-tag" id="cbTag2">RETENTION</text>
+<g id="cbLab1" class="cb-fade" style="opacity:0">
+<text x="516" y="164" text-anchor="end" class="cb-name">The opening</text>
+<text x="516" y="186" text-anchor="end" class="cb-tag" id="cbTag1">SALES</text>
+</g>
+<g id="cbLab2" class="cb-fade" style="opacity:0">
+<text x="516" y="420" text-anchor="end" class="cb-name">The holes</text>
+<text x="516" y="442" text-anchor="end" class="cb-tag" id="cbTag2">RETENTION</text>
+</g>
 <text x="260" y="570" text-anchor="middle" class="cb-name">The bucket</text>
 <text x="260" y="592" text-anchor="middle" class="cb-tag" style="fill:#9AA4AD">YOUR CLINIC</text>
 </svg>
@@ -416,6 +420,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #C8
     $('cbSplash').style.opacity = lidOn ? 1 : 0;
     gHoles.style.opacity = step === 2 ? 1 : 0;
     gPatch.style.opacity = step === 3 ? 1 : 0;
+    $('cbLab1').style.opacity = step >= 1 ? 1 : 0;
+    $('cbLab2').style.opacity = step >= 2 ? 1 : 0;
     ['cbTag0', 'cbTag1', 'cbTag2'].forEach(function (id, i) { $(id).style.fill = (step === i || step === 3) ? ACCENT : DIM; });
     dots.forEach(function (d, i) { d.classList.toggle('is-active', i === step); });
   }
